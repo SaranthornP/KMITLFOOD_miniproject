@@ -1,1 +1,1 @@
-# KMITLFOOD_miniproject
+# ProjectKMITL

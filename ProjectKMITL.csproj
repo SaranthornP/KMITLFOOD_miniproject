@@ -18,4 +18,11 @@
     <Folder Include="Views\Shared\Images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Home\Restaurant\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

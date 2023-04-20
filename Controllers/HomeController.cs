@@ -17,12 +17,25 @@ namespace ProjectKMITL.Controllers
         {
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();
         }
 
+        public IActionResult FindCafeteria()
+        {
+            return View();
+        }
+
+        public IActionResult Work()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

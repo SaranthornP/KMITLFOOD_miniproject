@@ -7,15 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Home\FindCafeteria.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Views\Home\FindCafeteria.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Shared\Images\" />
+    <None Include="wwwroot\Images\logo.png" />
   </ItemGroup>
 
   <ItemGroup>

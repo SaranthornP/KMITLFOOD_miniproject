@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ProjectKMITL.Models.Cafeteria>;
+@{
+    ViewData["Title"] = "Finding Cafeteria";
+}
+<div class="container-fluid">
+    @foreach (var Cafeteria in Model)
+    {
+        <div class="mb-3">
+            <div class=" border rounded-pill px-3">
+                <div class="mx-5 p-3">
+                    <div class="row">
+                        <div class="col-xl-3">
+                            <img class="img-fluid" src="~/Images/@Cafeteria.Image" alt="@Cafeteria.Name">
+                        </div>
+                        <div class="col-xl-6">
+                            <h3>@Cafeteria.Name</h3>
+                            <h4 class="d-inline">location: </h4><p class="d-inline">@Cafeteria.Location</p>
+                        </div>
+                        <div class="col-xl-3">
+                            <img class="img-fluid" src="~/Images/@Cafeteria.Image" alt="Map location">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    }
+</div>
+

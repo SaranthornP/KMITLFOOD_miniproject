@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ProjectKMITL.Models.ResModel>;
+@{
+    ViewData["Title"] = "Phra Thep Cafeteria";
+}
+<div class="container-fluid">
+    <h4><</h4>
+    <h3>โรงพระเทพ</h3>
+    <div class="row">
+        @foreach (var Res in Model)
+        {
+            <div class="col-xl-4 col-sm-6 text-center my-3 ">
+                <div class="container border border-dark d-flex justify-content-center">
+                <div class="pe-5">
+                    <img class="img-fluid" src="~/Images/@Res.img" alt="@Res.name">
+                </div>
+                <div class="">
+                    <h4>@Res.name</h4>
+                </div>
+                </div>
+            </div>
+
+
+        }
+    </div>
+</div>

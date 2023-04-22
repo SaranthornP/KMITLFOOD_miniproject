@@ -1,1 +1,5 @@
 # ProjectKMITL
+
+entityFrameworkCore
+entityFrameworkCore.Tools
+entityFrameworkCore.SqlServer

@@ -14,7 +14,7 @@
 
 1. โคลนโปรเจกต์
 
-		git clone https://github.com/SashaPGT/kmitlfood.git
+		git clone https://github.com/SaranthornP/KMITLFOOD_miniproject.git
 
 
 

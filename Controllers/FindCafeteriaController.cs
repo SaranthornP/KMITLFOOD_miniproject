@@ -21,7 +21,7 @@ namespace ProjectKMITL.Controllers
             c2.Image = "fb.png";
 
             var c3 = new Cafeteria();
-            c3.Name = "โรงอาหารถื่นชงโค";
+            c3.Name = "โรงอาหารถิ่นชงโค";
             c3.Location = "ECC";
             c3.Image = "fb.png";
 

@@ -14,7 +14,7 @@ namespace ProjectKMITL.Controllers
         }
 
         public IActionResult Index()
-        {
+        {  
             return View();
         }
         public IActionResult Privacy()
@@ -24,18 +24,31 @@ namespace ProjectKMITL.Controllers
 
         public IActionResult FindCafeteria()
         {
+            if(HttpContext.Session.GetString("UserName") == null)
+            {
+                return RedirectToAction("Login");
+            }
             return View();
         }
 
         public IActionResult Work()
         {
+            if (HttpContext.Session.GetString("UserName") == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             return View();
         }
 
         public IActionResult Login()
         {
+            if (HttpContext.Session.GetString("UserName") == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             return View();
         }
+
 
         public IActionResult Cart()
         {
@@ -46,6 +59,7 @@ namespace ProjectKMITL.Controllers
         {
             return View();
         }
+
 
         public IActionResult PhraThepCafeteria()
         {

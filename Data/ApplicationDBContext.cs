@@ -10,6 +10,6 @@ namespace ProjectKMITL.Data
 
         }
 
-        public DbSet<UserModel> Accounts { get; set; }
+        public DbSet<UserModel> Users { get; set; }
     }
 }

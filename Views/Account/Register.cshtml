@@ -1,4 +1,4 @@
-﻿@model ProjectKMITL.Models.UserModel
+﻿@model ProjectKMITL.Models.RegisterViewModel
 
 @{
     ViewData["Title"] = "Register";
@@ -13,8 +13,8 @@
                         <div class="mb-md-5 mt-md-4 pb-5">
 
                             <h2 class="fw-bold mb-2 text-uppercase">Registration</h2>
-                            <p class="text-white-50 mb-5">Please enter your username and password!</p>
-                            <form asp-action="Register" method="post">
+                            <p class="text-white-50 mb-5">Please enter your info!</p>
+                            <form  asp-controller="Account" asp-action="Register" method="post">
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="form-outline form-white mb-4">
                                     <label asp-for="Username" class="control-label"></label>
@@ -23,9 +23,33 @@
                                 </div>
 
                                 <div class="form-outline form-white mb-4">
+                                    <label asp-for="Firstname" class="control-label"></label>
+                                    <input asp-for="Firstname" class="form-control" />
+                                    <span asp-validation-for="Firstname" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                    <label asp-for="Lastname" class="control-label"></label>
+                                    <input asp-for="Lastname" class="form-control" />
+                                    <span asp-validation-for="Lastname" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                    <label asp-for="Phone" class="control-label"></label>
+                                    <input asp-for="Phone" class="form-control" />
+                                    <span asp-validation-for="Phone" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
                                     <label asp-for="Password" class="control-label "></label>
                                     <input asp-for="Password" class="form-control" />
                                     <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                    <label asp-for="ConfirmPassword" class="control-label "></label>
+                                    <input asp-for="ConfirmPassword" class="form-control" />
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                                 </div>
 
                                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>

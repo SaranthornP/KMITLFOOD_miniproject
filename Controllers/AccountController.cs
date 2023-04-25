@@ -32,12 +32,20 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    public IActionResult Register(UserModel user)
+    public IActionResult Register(RegisterViewModel userGet)
     {
+        UserModel user = new UserModel();
+        user.Username = userGet.Username;
+        user.Password = userGet.Password;
+        user.Firstname = userGet.Firstname;
+        user.Lastname = userGet.Lastname;
+        user.Phone = userGet.Phone;
         if (IsUsernameExists(user.Username))
         {
             ModelState.AddModelError(string.Empty, "Username already exists");
-            return View(user);
+            userGet.Password = "";
+            userGet.ConfirmPassword = "";
+            return View(userGet);
         }
 
         if (ModelState.IsValid)
@@ -47,7 +55,9 @@ public class AccountController : Controller
             return RedirectToAction("Index", "Home");
         }
 
-        return View(user);
+        userGet.Password = "";
+        userGet.ConfirmPassword = "";
+        return View(userGet);
     }
 
 

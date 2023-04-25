@@ -2,12 +2,11 @@
 
 namespace ProjectKMITL.Models
 {
-    public class UserModel
+    public class RegisterViewModel
     {
-        [Key]
-        public int UserId { get; set; }
-
-        [Required(ErrorMessage = "Please enter a username.")]
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Username")]
         public string Username { get; set; }
 
         [Required]
@@ -15,5 +14,10 @@ namespace ProjectKMITL.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
     }
 }

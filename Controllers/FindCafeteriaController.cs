@@ -9,7 +9,10 @@ namespace ProjectKMITL.Controllers
         // GET: FindCafeteria
         public ActionResult Index()
         {
-
+            if (HttpContext.Session.GetString("UserName") == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             Cafeteria c1 = new Cafeteria();
             c1.Name = "โรงอาหารพระเทพ";
             c1.Location = "3 ถ. ฉลองกรุง แขวงลำปลาทิว เขตลาดกระบัง กรุงเทพมหานคร 10520 (ใกล้ตึกพระเทพ, ตึก ECC)";

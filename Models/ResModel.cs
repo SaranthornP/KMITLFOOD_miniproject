@@ -7,5 +7,7 @@ namespace ProjectKMITL.Models
         public string name { get; set; }
         
         public string img { get; set; }
+
+        public string detail { get; set; }  
     }
 }

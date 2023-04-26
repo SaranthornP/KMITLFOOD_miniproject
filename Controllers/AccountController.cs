@@ -78,8 +78,7 @@ public class AccountController : Controller
         if (IsValidUser(model.Username, model.Password))
         {
             HttpContext.Session.SetString("UserName", model.Username);
-            TempData["Username"] = model.Username;
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Profile");
             
         }
         if(!IsValidUser(model.Username, model.Password))
@@ -94,6 +93,29 @@ public class AccountController : Controller
         return View(model);
     }
 
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Remove("UserName");
+        return RedirectToAction("Index", "Home");
+    }
+
+    [HttpGet]
+    public IActionResult Profile()
+    {
+        if (HttpContext.Session.GetString("UserName") == null)
+        {
+            return RedirectToAction("Login");
+        }
+        string username = HttpContext.Session.GetString("UserName");
+        var user = _context.Users.FirstOrDefault(u => u.Username == username);
+        UserModel userModel = user;
+        return View(userModel);
+    }
+
+    public IActionResult Edit()
+    {
+        return View();
+    }
     private bool IsValidUser(string username, string password)
     {
         var isValid = false;

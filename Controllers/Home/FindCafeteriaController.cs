@@ -9,28 +9,32 @@ namespace ProjectKMITL.Controllers.Home
     {
         // GET: FindCafeteria
         [Route("/Home/FindCafeteria")]
-        public ActionResult Index()
+        public IActionResult Index()
         {
             if (HttpContext.Session.GetString("UserName") == null)
             {
                 return RedirectToAction("Login", "Account");
             }
             Cafeteria c1 = new Cafeteria();
+            c1.CafeteriaImg = "Restaurant/b1.png";
             c1.Name = "โรงอาหารพระเทพ";
             c1.Location = "3 ถ. ฉลองกรุง แขวงลำปลาทิว เขตลาดกระบัง กรุงเทพมหานคร 10520 (ใกล้ตึกพระเทพ, ตึก ECC)";
             c1.Image = "LocationMap/c1.png";
 
             var c2 = new Cafeteria();
+            c2.CafeteriaImg = "Restaurant/b2.png";
             c2.Name = "โรงอาหาร A";
             c2.Location = "ECC";
             c2.Image = "LocationMap/c2.png";
 
             var c3 = new Cafeteria();
+            c3.CafeteriaImg = "Restaurant/b3.png";
             c3.Name = "โรงอาหารถิ่นชงโค";
             c3.Location = "ECC";
             c3.Image = "LocationMap/c3.png";
 
             var c4 = new Cafeteria();
+            c4.CafeteriaImg = "Restaurant/b4.png";
             c4.Name = "โรงอาหาร C";
             c4.Location = "ECC";
             c4.Image = "LocationMap/c4.png";
@@ -45,73 +49,9 @@ namespace ProjectKMITL.Controllers.Home
             return View(allCafeteria);
         }
 
-        // GET: FindCafeteria/Details/5
-        public ActionResult Details(int id)
+        public IActionResult Restaurant()
         {
             return View();
-        }
-
-        // GET: FindCafeteria/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: FindCafeteria/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: FindCafeteria/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: FindCafeteria/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: FindCafeteria/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: FindCafeteria/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     public class Cafeteria
     {
+        public string CafeteriaImg { get; set; }
 
         public string Name { get; set; }
 

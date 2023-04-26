@@ -6,11 +6,11 @@
     @foreach (var Cafeteria in Model)
     {
         <div class="mb-3">
-            <div class=" border border-dark border-2 rounded-pill px-3">
+            <div class="border border-dark border-2 rounded-pill px-3" style="cursor:pointer" onclick="location.href='@Url.Action("Index", "FindCafeteria")'">
                 <div class="mx-5 p-3">
                     <div class="row">
                         <div class="col-md-3 col-12 d-flex align-items-center justify-content-center" >
-                            <img class="img-fluid border rounded-circle" src="~/Images/@Cafeteria.Image" alt="@Cafeteria.Name">
+                            <img class="img-fluid border rounded-circle" src="~/Images/@Cafeteria.CafeteriaImg" alt="@Cafeteria.Name">
                         </div>
                         <div class="col-md-6 col-12 my-5 my-0-xl">
                             <h3>@Cafeteria.Name</h3>

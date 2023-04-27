@@ -23,4 +23,6 @@
 		dotnet run
 
 ## Notes
-
+entityFrameworkCore
+entityFrameworkCore.Tools
+entityFrameworkCore.SqlServer

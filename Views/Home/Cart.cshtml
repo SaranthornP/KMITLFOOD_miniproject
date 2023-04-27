@@ -7,14 +7,53 @@
 <div class="container-fluid">
     <h3>รถเข็น</h3>
     <div class="row">
-        <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
-            <div style="border-radius: 80px; padding: 150px; background-color: #F8F8F8; color:black;">
-                <img src="image.jpg" alt="Image" style="float: left; margin-right: 20px;">
-                <h2>ชื่อร้าน</h2>
-                <h2>-->โรงพระเทพ</h2>         
-                <hr style="border: 2px solid black; margin: 10px;">
-                <p>Content</p>
+        <div class="col-md-2 d-flex align-items-center">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
             </div>
         </div>
+        <div class="col-md-10">
+            <div class="border border-dark border-2  rounded-pill px-1">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <img class="img-circle" style='float:left;width:200px;height:200px; margin-right:10px;' src="https://images.secretmenus.com/wp-content/uploads/2017/12/amazon-cafe.jpeg" />
+                        <p>ชื่อร้าน</p>
+                        <button type="button" class="btn btn-warning">โรงพระเทพ</button>
+
+                        <table class="table">
+                            <thread>
+                                <tr>
+                                    <th>รายการอาหาร</th>
+                                    <th>ราคา</th>
+                                </tr>
+                            </thread>
+                            <tbody>
+                                <tr>
+                                    <th>ข้าวไก่คาราเกะ (x2)</th>
+                                    <th>80</th>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <th>ข้าวแกงกระหรี่ไก่ทอด (x1)</th>
+                                    <th>45</th>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-warning bg-white">Delete</button>
+            <button type="button" class="btn btn-warning">To order</button>
+        </div>
+
     </div>
 </div>

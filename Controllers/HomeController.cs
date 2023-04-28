@@ -65,23 +65,26 @@ namespace ProjectKMITL.Controllers
         {
             ResModel res1 = new ResModel();
             res1.name = "1";
-            res1.img = "1";
+            res1.img = "kanom.jpg";
+            res1.detail = "ร้านไก่ทอดเทคโน";
 
             var res2 = new ResModel();
             res2.name = "2";
-            res2.img = "2";
+            res2.img = "kanom.jpg";
+            res2.detail = "ร้านส้มตำ";
 
             var res3 = new ResModel();
             res3.name = "3";
-            res3.img = "3";
+            res3.img = "kanom.jpg";
+            res3.detail = "ร้านลุงหนวด";
 
             var res4 = new ResModel();
             res4.name = "4";
-            res4.img = "4";
+            res4.img = "kanom.jpg";
 
             var res5 = new ResModel();
             res5.name = "5";
-            res5.img = "5";
+            res5.img = "kanom.jpg";
 
             List<ResModel> allRes = new List<ResModel>();
             allRes.Add(res1);
@@ -93,7 +96,9 @@ namespace ProjectKMITL.Controllers
             return View(allRes);
         }
 
-        public IActionResult CafeteriaA()
+
+
+        public IActionResult FoodA()
         {
             ResModel res1 = new ResModel();
             res1.name = "1";
@@ -117,6 +122,7 @@ namespace ProjectKMITL.Controllers
             var res5 = new ResModel();
             res5.name = "5";
             res5.img = "kanom.jpg";
+            res5.detail = "Facebook";
 
             List<ResModel> allRes = new List<ResModel>();
             allRes.Add(res1);

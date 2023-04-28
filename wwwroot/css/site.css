@@ -17,3 +17,33 @@ body {
   margin-bottom: 60px;
 }
 
+.Cafeteria {
+    transition: 0.2s;
+}
+
+.Cafeteria:hover {
+    filter: brightness(80%);
+}
+
+.previous {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    background: white;
+    color: black;
+    transition: 0.2s;
+}
+
+.previous:hover {
+    padding-left: 1px;
+    color: lightslategrey;
+}
+
+.Restaurant {
+    transition: 0.5s;
+    filter: brightness(100%) drop-shadow(4px 4px 5px gray);
+}
+
+.Restaurant:hover {
+    filter: brightness(70%) drop-shadow(4px 4px 5px gray);
+}

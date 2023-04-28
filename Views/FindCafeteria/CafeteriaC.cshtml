@@ -11,19 +11,17 @@
     <div class="row">
         @foreach (var ResModel in Model)
         {
-            <div class="col-xl-4 col-sm-6 text-center my-3 Restaurant" style="cursor:pointer" onclick="location.href='@Url.Action("FindCafeteria")'">
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img class="img-fluid" src="~/Images/@ResModel.img" alt="@ResModel.name">
-                        <div class="card-body">
-                            <p class="card-text">@ResModel.detail</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                            </div>
-                        </div>
+        <form class=" Restaurant col-xl-4 col-sm-6" action="@Url.Action("SetTempData")" method="POST">
+            <input type="hidden" name="value" value="@ResModel.detail" />
+            <button class="card shadow-sm text-center my-3 p-0 d-flex justify-content-between align-items-center " style="cursor:pointer">
+                <img class="img-fluid" src="~/Images/@ResModel.img" alt="@ResModel.name">
+                <div class="card-body">
+                    <p class="card-text">@ResModel.detail</p>
+                    <div class="d-flex justify-content-between align-items-center">
                     </div>
                 </div>
-
-            </div>
+            </button>
+        </form>
 
         }
     </div>

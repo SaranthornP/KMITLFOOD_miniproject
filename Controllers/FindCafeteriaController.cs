@@ -211,34 +211,39 @@ namespace ProjectKMITL.Controllers
             return RedirectToAction("Restaurant","FindCafeteria" ,new { cafeteria = cafeteria, restaurant = value});
         }
 
-        public static string name = "someting";
-
         [Route("/Home/FindCafeteria/{cafeteria}/{restaurant}")]
         public IActionResult Restaurant(string cafeteria, string restaurant)
         {
+            if (cafeteria == "CafeteriaA") ViewBag.Head = "โรงอาหาร A";
+            else if (cafeteria == "CafeteriaC") ViewBag.Head = "โรงอาหาร C";
+            else if (cafeteria == "PhraThepCafeteria") ViewBag.Head = "โรงอาหารพระเทพ";
+            else ViewBag.Head = "โรงอาหารถิ่นชงโค";
+
+            ViewBag.Back = cafeteria;
             ResModel res1 = new ResModel();
             res1.name = "1";
             res1.img = "kanom.jpg";
-            res1.detail = "ร้านไก่ทอดเทคโน";
+            res1.detail = "ข้าวแกงกะหรี่";
 
             var res2 = new ResModel();
             res2.name = "2";
             res2.img = "kanom.jpg";
-            res2.detail = "ร้านส้มตำ";
+            res2.detail = "ข้าวไก่คาราเกะ";
 
             var res3 = new ResModel();
             res3.name = "3";
             res3.img = "kanom.jpg";
-            res3.detail = "ร้านลุงหนวด";
+            res3.detail = "ข้าวแกงเขียวหวาน";
 
             var res4 = new ResModel();
             res4.name = "4";
             res4.img = "kanom.jpg";
+            res4.detail = "สเต็กไก่";
 
             var res5 = new ResModel();
             res5.name = "5";
             res5.img = "kanom.jpg";
-            res5.detail = "Facebook";
+            res5.detail = "ข้าวมันไก่";
 
             List<ResModel> allRes = new List<ResModel>();
             allRes.Add(res1);

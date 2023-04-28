@@ -21,9 +21,9 @@ body {
     transition: 0.2s;
 }
 
-.Cafeteria:hover {
-    filter: brightness(80%);
-}
+    .Cafeteria:hover {
+        filter: brightness(80%);
+    }
 
 .previous {
     text-decoration: none;
@@ -34,16 +34,45 @@ body {
     transition: 0.2s;
 }
 
-.previous:hover {
-    padding-left: 1px;
-    color: lightslategrey;
-}
+    .previous:hover {
+        padding-left: 1px;
+        color: lightslategrey;
+    }
 
 .Restaurant {
     transition: 0.5s;
     filter: brightness(100%) drop-shadow(4px 4px 5px gray);
 }
 
-.Restaurant:hover {
-    filter: brightness(70%) drop-shadow(4px 4px 5px gray);
+    .Restaurant:hover {
+        filter: brightness(70%) drop-shadow(4px 4px 5px gray);
+    }
+
+
+
+.MenuOut span {
+    color: white;
+    display: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: 20%;
+    left: 50%;
+    transition: 0.5s;
 }
+
+.MenuIn{
+    filter: brightness(100%) drop-shadow(4px 4px 5px gray);
+    transition: 0.5s;
+}
+
+.MenuOut:hover span{
+    display: inline;
+    cursor: pointer;
+}
+
+.MenuOut:hover .MenuIn {
+    filter: brightness(20%) drop-shadow(4px 4px 5px gray);
+}
+
+
+

@@ -1,29 +1,37 @@
 ﻿@model IEnumerable<ProjectKMITL.Models.ResModel>;
 @{
     ViewData["Title"] = "SelectFoodCafeteriaA";
+    string value;
+    string Head;
+    if (ViewBag.Back != null) value = ViewBag.Back;
+    else value = "Index";
+    if (ViewBag.Head != null) Head = ViewBag.Head;
+    else Head = "โรงอาหาร";
 }
 
 <div class="container-fluid">
-    <h3>โรงอาหาร A</h3>
+    <div class="previous" style="cursor:pointer" onclick="location.href='@Url.Action(value)'">
+        <h3 class="d-inline-block">&#8249 @Head</h3>
+    </div>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         @foreach (var ResModel in Model)
         {
-            <div class="col-xl-4 col-sm-3 text-center my-3">
-                <div class="col">
-                    <div class="card shadow-sm">
+            <div class="MenuOut col-xl-4 col-sm-6 position-relative" onclick="Test()">
+                <div class="card MenuIn shadow-sm text-center my-3 p-0 d-flex justify-content-between align-items-center " style="cursor:pointer">
+                    <div class="">
                         <img class="img-fluid" src="~/Images/@ResModel.img" alt="@ResModel.name">
                         <div class="card-body">
                             <p class="card-text">@ResModel.detail</p>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <div class="btn">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>
-
-                                </div>
+                            <div class="d-flex justify-content-between align-items-center">
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <span id="AddCart">
+                    <div class="bg-white text-black p-2">Add to cart</div>
+                </span>
+                
+                
             </div>
 
         }

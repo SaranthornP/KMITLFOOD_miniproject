@@ -137,6 +137,27 @@ namespace ProjectKMITL.Controllers
         {
             return View();
         }
+
+        public IActionResult Work_us()
+        {
+            return View();
+        }
+
+        public IActionResult Confirm_us()
+        {
+            return View();
+        }
+
+        public IActionResult Waiting_us()
+        {
+            return View();
+        }
+
+        public IActionResult details()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

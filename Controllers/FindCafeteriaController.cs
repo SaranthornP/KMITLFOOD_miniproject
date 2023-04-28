@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using ProjectKMITL.Models;
 
 namespace ProjectKMITL.Controllers
@@ -11,6 +12,7 @@ namespace ProjectKMITL.Controllers
         [Route("/Home/FindCafeteria")]
         public IActionResult Index()
         {
+
             if (HttpContext.Session.GetString("Cafeteria") != null)
             {
                 HttpContext.Session.Remove("Cafeteria");
@@ -60,6 +62,7 @@ namespace ProjectKMITL.Controllers
 
         public IActionResult PhraThepCafeteria()
         {
+            HttpContext.Session.SetString("Cafeteria", "PhraThepCafeteria");
             ResModel res1 = new ResModel();
             res1.name = "1";
             res1.img = "kanom.jpg";
@@ -94,6 +97,7 @@ namespace ProjectKMITL.Controllers
         }
         public IActionResult CafeteriaA()
         {
+            HttpContext.Session.SetString("Cafeteria", "CafeteriaA");
             ResModel res1 = new ResModel();
             res1.name = "1";
             res1.img = "kanom.jpg";
@@ -129,6 +133,7 @@ namespace ProjectKMITL.Controllers
 
         public IActionResult CafeteriaC()
         {
+            HttpContext.Session.SetString("Cafeteria", "CafeteriaC");
             ResModel res1 = new ResModel();
             res1.name = "1";
             res1.img = "kanom.jpg";
@@ -164,6 +169,7 @@ namespace ProjectKMITL.Controllers
 
         public IActionResult ThinChongKhoCafeteria()
         {
+            HttpContext.Session.SetString("Cafeteria", "ThinChongKhoCafeteria");
             ResModel res1 = new ResModel();
             res1.name = "1";
             res1.img = "kanom.jpg";
@@ -186,6 +192,53 @@ namespace ProjectKMITL.Controllers
             var res5 = new ResModel();
             res5.name = "5";
             res5.img = "kanom.jpg";
+
+            List<ResModel> allRes = new List<ResModel>();
+            allRes.Add(res1);
+            allRes.Add(res2);
+            allRes.Add(res3);
+            allRes.Add(res4);
+            allRes.Add(res5);
+
+            return View(allRes);
+        }
+
+        [HttpPost]
+        public IActionResult SetTempData(string value)
+        {
+            string cafeteria = HttpContext.Session.GetString("Cafeteria");
+            HttpContext.Session.SetString("Restaurant", value);
+            return RedirectToAction("Restaurant","FindCafeteria" ,new { cafeteria = cafeteria, restaurant = value});
+        }
+
+        public static string name = "someting";
+
+        [Route("/Home/FindCafeteria/{cafeteria}/{restaurant}")]
+        public IActionResult Restaurant(string cafeteria, string restaurant)
+        {
+            ResModel res1 = new ResModel();
+            res1.name = "1";
+            res1.img = "kanom.jpg";
+            res1.detail = "ร้านไก่ทอดเทคโน";
+
+            var res2 = new ResModel();
+            res2.name = "2";
+            res2.img = "kanom.jpg";
+            res2.detail = "ร้านส้มตำ";
+
+            var res3 = new ResModel();
+            res3.name = "3";
+            res3.img = "kanom.jpg";
+            res3.detail = "ร้านลุงหนวด";
+
+            var res4 = new ResModel();
+            res4.name = "4";
+            res4.img = "kanom.jpg";
+
+            var res5 = new ResModel();
+            res5.name = "5";
+            res5.img = "kanom.jpg";
+            res5.detail = "Facebook";
 
             List<ResModel> allRes = new List<ResModel>();
             allRes.Add(res1);

@@ -96,8 +96,6 @@ namespace ProjectKMITL.Controllers
             return View(allRes);
         }
 
-
-
         public IActionResult FoodA()
         {
             ResModel res1 = new ResModel();

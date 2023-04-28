@@ -29,20 +29,21 @@ body {
     text-decoration: none;
     display: inline-block;
     padding: 8px 16px;
-    background: black;
-    color: white;
+    background: white;
+    color: black;
     transition: 0.2s;
 }
 
 .previous:hover {
-    background-color: grey;
-    color: black;
+    padding-left: 1px;
+    color: lightslategrey;
 }
 
-.Restaurant{
-    transition: 0.2s;
+.Restaurant {
+    transition: 0.5s;
+    filter: brightness(100%) drop-shadow(4px 4px 5px gray);
 }
 
 .Restaurant:hover {
-    filter:brightness(60%);
+    filter: brightness(70%) drop-shadow(4px 4px 5px gray);
 }

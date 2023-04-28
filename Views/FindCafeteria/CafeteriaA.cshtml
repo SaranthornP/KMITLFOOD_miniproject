@@ -1,13 +1,16 @@
 ﻿@model IEnumerable<ProjectKMITL.Models.ResModel>;
 @{
-    ViewData["Title"] = "CafeteriaA";
+    ViewData["Title"] = "Cafeteria A";
 }
 <div class="container-fluid">
-    <h3>โรงอาหาร A</h3>
-    <div class = "row">
-    @foreach (var ResModel in Model)
-    {
-            <div class="col-xl-4 col-sm-6 text-center my-3 ">
+    <div class="previous" style="cursor:pointer" onclick="location.href='@Url.Action("Index")'">
+        <h3 class="d-inline-block">&#8249 โรงอาหาร A</h3>
+    </div>
+
+    <div class="row">
+        @foreach (var ResModel in Model)
+        {
+            <div class="col-xl-4 col-sm-6 text-center my-3 Restaurant" style="cursor:pointer" onclick="location.href='@Url.Action("FindCafeteria")'">
                 <div class="col">
                     <div class="card shadow-sm">
                         <img class="img-fluid" src="~/Images/@ResModel.img" alt="@ResModel.name">
@@ -17,10 +20,10 @@
                             </div>
                         </div>
                     </div>
-               </div>
-               
-             </div>
-        
-    }
+                </div>
+
+            </div>
+
+        }
     </div>
 </div>

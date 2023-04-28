@@ -11,6 +11,11 @@ namespace ProjectKMITL.Controllers
         [Route("/Home/FindCafeteria")]
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("Cafeteria") != null)
+            {
+                HttpContext.Session.Remove("Cafeteria");
+            }
+            
             if (HttpContext.Session.GetString("UserName") == null)
             {
                 return RedirectToAction("Login", "Account");

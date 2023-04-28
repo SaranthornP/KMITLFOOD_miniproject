@@ -1,13 +1,17 @@
 ﻿@model IEnumerable<ProjectKMITL.Models.ResModel>;
 @{
-    ViewData["Title"] = "CafeteriaC";
+    ViewData["Title"] = "PhraThep Cafeteria";
 }
 <div class="container-fluid">
-    <h3>โรงพระเทพ</h3>
+    <div class="">
+        <a class="d-inline-block previous rounded-circle text-center me-2" asp-action="Index">&#8249</a>
+        <h3 class="d-inline-block">โรงพระเทพ</h3>
+    </div>
+    
     <div class="row">
         @foreach (var ResModel in Model)
         {
-            <div class="col-xl-4 col-sm-6 text-center my-3 ">
+            <div class="col-xl-4 col-sm-6 text-center my-3 Restaurant" style="cursor:pointer" onclick="location.href='@Url.Action("FindCafeteria")'">
                 <div class="col">
                     <div class="card shadow-sm">
                         <img class="img-fluid" src="~/Images/@ResModel.img" alt="@ResModel.name">

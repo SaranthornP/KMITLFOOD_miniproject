@@ -55,7 +55,7 @@ body {
     display: none;
     position: absolute;
     transform: translate(-50%, -50%);
-    bottom: 20%;
+    top: 50%;
     left: 50%;
     transition: 0.5s;
 }
@@ -74,4 +74,24 @@ body {
     filter: brightness(20%) drop-shadow(4px 4px 5px gray);
 }
 
+#Cart {
+    border-radius: 50px;
+    width: 0px;
+    height: 0px;
+    display: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    transition: 0.5s;
+    right: 0%;
+    bottom: 5%;
+    justify-content: center;
+    align-items: center;
+}
+
+#Cart img{
+    filter: invert(100%);
+    max-width: 50%;
+    max-height: 50%;
+}
 

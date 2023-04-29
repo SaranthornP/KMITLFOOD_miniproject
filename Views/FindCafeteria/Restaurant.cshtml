@@ -3,7 +3,7 @@
     ViewData["Title"] = "SelectFoodCafeteriaA";
     string value;
     string Head;
-    if (ViewBag.Back != null) value = ViewBag.Back;
+    if (ViewBag.caf != null) value = ViewBag.caf;
     else value = "Index";
     if (ViewBag.Head != null) Head = ViewBag.Head;
     else Head = "โรงอาหาร";
@@ -13,10 +13,10 @@
     <div class="previous" style="cursor:pointer" onclick="location.href='@Url.Action(value)'">
         <h3 class="d-inline-block">&#8249 @Head</h3>
     </div>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="row row-cols-1 row-cols-2 row-cols-md-3 g-3 mb-5 mb-sm-0">
         @foreach (var ResModel in Model)
         {
-            <div class="MenuOut col-xl-4 col-sm-6 position-relative" onclick="Test()">
+            <div class="MenuOut col-md-4 col-6 position-relative" onclick="AddCart('@ResModel.detail')">
                 <div class="card MenuIn shadow-sm text-center my-3 p-0 d-flex justify-content-between align-items-center " style="cursor:pointer">
                     <div class="">
                         <img class="img-fluid" src="~/Images/@ResModel.img" alt="@ResModel.name">
@@ -36,4 +36,33 @@
 
         }
     </div>
+    <form  action="@Url.Action("Cart2")" method="POST">
+        <input type="hidden" id="OrderList" name="orderList" value="" />
+        <input type="hidden" id="CountList" name="countList" value="" />
+        <button class="border-white bg-white">
+            <div id="Cart">
+                <img class="img-fluid" src="~/Images/Cart.png" alt="Cart" />
+            </div>
+            
+        </button>
+    </form>
 </div>
+<script>
+    document.getElementById("OrderList").value = "";
+    document.getElementById("CountList").value = "";
+    var index = 0;
+    var count = 0;
+    const ListOrder = [];
+    const CountOrder = [];
+    function AddCart(name) {
+        if (count == 0) Move();
+        count++;
+        if (ListOrder.includes(name)) CountOrder[ListOrder.indexOf(name)] += 1;
+        else {
+            ListOrder.push(name);
+            CountOrder.push(1);
+        }
+        document.getElementById("OrderList").value = ListOrder;
+        document.getElementById("CountList").value = CountOrder;
+    }
+</script>

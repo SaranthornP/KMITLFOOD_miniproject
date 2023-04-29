@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectKMITL.Data;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 

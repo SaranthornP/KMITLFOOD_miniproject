@@ -1,0 +1,15 @@
+﻿@model IEnumerable<ProjectKMITL.Models.OrderModel>;
+
+@{
+    ViewData["Title"] = "Work with us";
+}
+
+<div>
+    @foreach (var Car in Model)
+    {
+        <div>@Car.Cafeteria</div>
+        <div>@Car.NameDepositor</div>
+    }
+</div>
+    
+

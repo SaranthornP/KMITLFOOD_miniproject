@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectKMITL.Data;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<OrderDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddSession(options => {
     options.IdleTimeout = TimeSpan.FromMinutes(30); //กำหนดเวลา timeout ให้ Session
     options.Cookie.HttpOnly = true;

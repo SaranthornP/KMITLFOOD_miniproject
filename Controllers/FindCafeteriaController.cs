@@ -2,14 +2,23 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using ProjectKMITL.Models;
+using System.Web;
+using ProjectKMITL.Data;
 
 namespace ProjectKMITL.Controllers
 {
-    [Route("Home/[controller]/[action]")]
+    [Route("/[controller]/[action]")]
     public class FindCafeteriaController : Controller
     {
+        private readonly OrderDbContext _context;
+
+        public FindCafeteriaController(OrderDbContext context)
+        {
+            _context = context;
+
+        }
+
         // GET: FindCafeteria
-        [Route("/Home/FindCafeteria")]
         public IActionResult Index()
         {
 
@@ -211,15 +220,28 @@ namespace ProjectKMITL.Controllers
             return RedirectToAction("Restaurant","FindCafeteria" ,new { cafeteria = cafeteria, restaurant = value});
         }
 
-        [Route("/Home/FindCafeteria/{cafeteria}/{restaurant}")]
+        public IActionResult RestaurantPath()
+        {
+            string cafeteria = HttpContext.Session.GetString("Cafeteria");
+            string restaurant = HttpContext.Session.GetString("Restaurant");
+            return RedirectToAction("Restaurant", "FindCafeteria", new { cafeteria = cafeteria, restaurant = restaurant});
+        }
+
+        [HttpGet]
+        [Route("/FindCafeteria/{cafeteria}/{restaurant}")]
         public IActionResult Restaurant(string cafeteria, string restaurant)
         {
-            if (cafeteria == "CafeteriaA") ViewBag.Head = "โรงอาหาร A";
-            else if (cafeteria == "CafeteriaC") ViewBag.Head = "โรงอาหาร C";
-            else if (cafeteria == "PhraThepCafeteria") ViewBag.Head = "โรงอาหารพระเทพ";
-            else ViewBag.Head = "โรงอาหารถิ่นชงโค";
+            ViewBag.res = restaurant;
+            string Head = "";
+            if (cafeteria == "CafeteriaA") Head = "โรงอาหาร A";
+            else if (cafeteria == "CafeteriaC") Head = "โรงอาหาร C";
+            else if (cafeteria == "PhraThepCafeteria") Head = "โรงอาหารพระเทพ";
+            else Head = "โรงอาหารถิ่นชงโค";
+            ViewBag.Head = Head;
+            HttpContext.Session.SetString("Head", Head);
+            ViewBag.caf = cafeteria;
+            
 
-            ViewBag.Back = cafeteria;
             ResModel res1 = new ResModel();
             res1.name = "1";
             res1.img = "kanom.jpg";
@@ -254,5 +276,67 @@ namespace ProjectKMITL.Controllers
 
             return View(allRes);
         }
+
+        public static List<OrderListModel> ListOrder;
+        [HttpPost]
+        public IActionResult Cart2(string orderList, string countList, string returnUrl)
+        {
+            HttpContext.Session.SetString("orderList", orderList);
+            HttpContext.Session.SetString("orderCount", countList);
+            string[] order = orderList.Split(',');
+            string[] count = countList.Split(",");
+            int[] orderCount = new int[100];
+            for (int i = 0; i < count.Length; i++)
+            {
+                int num = int.Parse(count[i]);
+                orderCount[i] = num;
+            }
+            
+            List<OrderListModel> list = new List<OrderListModel>();
+            for (int i = 0; i < order.Length; i++)
+            {
+                OrderListModel model = new OrderListModel();
+                model.name = order[i];
+                model.count = orderCount[i];
+                list.Add(model);
+            }
+            ListOrder = list;
+            string cafeteria = HttpContext.Session.GetString("Cafeteria");
+            string restaurant = HttpContext.Session.GetString("Restaurant");
+            return RedirectToAction("Cart", "FindCafeteria" ,new {cafeteria = cafeteria, restaurant = restaurant });
+        }
+
+       
+        [HttpGet]
+        [Route("/FindCafeteria/{cafeteria}/{restaurant}/[action]")]
+        public IActionResult Cart(string cafeteria, string restaurant)
+        {   ViewBag.res = HttpContext.Session.GetString("Restaurant");
+            ViewBag.Head = HttpContext.Session.GetString("Head");
+            return View(ListOrder);
+        }
+
+        public IActionResult OrderedPath()
+        {
+            string cafeteria = HttpContext.Session.GetString("Cafeteria");
+            string restaurant = HttpContext.Session.GetString("Restaurant");
+            return RedirectToAction("Ordered", "FindCafeteria", new { cafeteria = cafeteria, restaurant = restaurant });
+        }
+
+        [HttpGet]
+        [Route("/FindCafeteria/{cafeteria}/{restaurant}/[action]")]
+        public IActionResult Ordered() {
+            OrderModel model = new OrderModel();
+            model.NameDepositor = HttpContext.Session.GetString("UserName");
+            model.Cafeteria = HttpContext.Session.GetString("Cafeteria");
+            model.Restaurant = HttpContext.Session.GetString("Restaurant");
+            model.OrderList = HttpContext.Session.GetString("orderList");
+            model.OrderCount = HttpContext.Session.GetString("orderCount");
+            model.NameDepository = "";
+            _context.Orders.Add(model);
+            _context.SaveChanges();
+            return View();
+        }
+
+
     }
 }

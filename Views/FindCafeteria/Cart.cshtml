@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ProjectKMITL.Models.OrderListModel>;
+@{
+
+}
+
+
+<div class="container-fluid">
+    <div class="border" style="border-radius: 80px; padding: 100px; background-color: #F8F8F8; color:black;">
+        <div class="row">
+            <div class="col-md-12">
+                <img class="img-fluid" style='float:left;max-width:200px; max-height:200px; margin-right:10px;' src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" />
+                <h4>@ViewBag.res</h4>
+                <button type="button" class="btn btn-warning">@ViewBag.Head</button>
+                <div class="d-flex justify-content-center">
+                    <table class="table table-borderless">
+                        <thread>
+                            <tr>
+                                <th>รายการอาหาร</th>
+                                <th>จำนวน</th>
+                            </tr>
+                        </thread>
+                        @foreach (var Order in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <th>@Order.name</th>
+                                    <th>@Order.count</th>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="d-flex justify-content-around">
+                <button type="button" class="btn btn-warning bg-white" onclick="location.href='@Url.Action("RestaurantPath")'">Cancle</button>
+                <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("OrderedPath")'">Confirm</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

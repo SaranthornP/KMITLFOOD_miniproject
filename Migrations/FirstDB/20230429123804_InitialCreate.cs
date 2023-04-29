@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace ProjectKMITL.Migrations
+namespace ProjectKMITL.Migrations.FirstDB
 {
     /// <inheritdoc />
-    public partial class UsersDB : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

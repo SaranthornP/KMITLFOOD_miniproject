@@ -9,6 +9,7 @@ using Microsoft.CodeAnalysis.Operations;
 public class AccountController : Controller
 {
     private readonly ApplicationDBContext _context;
+    private readonly OrderDbContext _db;
     private bool IsUsernameExists(string username)
     {
         var user = _context.Users.Where(u => u.Username == username).FirstOrDefault();
@@ -18,9 +19,10 @@ public class AccountController : Controller
         }
         return false;
     }
-    public AccountController(ApplicationDBContext context)
+    public AccountController(ApplicationDBContext context, OrderDbContext db)
     {
         _context = context;
+        _db = db;
 
     }
 
@@ -143,6 +145,14 @@ public class AccountController : Controller
             }
 
         return isValid;
+    }
+
+    public IActionResult Delete()
+    {
+        IEnumerable<OrderModel> allOrder = _db.Orders;
+        string Username = HttpContext.Session.GetString("UserName");
+        var list = allOrder.Where(x => x.NameDepository == Username);
+        return View(list);
     }
 
 }

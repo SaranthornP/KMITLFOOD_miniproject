@@ -7,7 +7,7 @@ using ProjectKMITL.Data;
 
 namespace ProjectKMITL.Controllers
 {
-    [Route("Home/[controller]/[action]")]
+    [Route("/[controller]/[action]")]
     public class FindCafeteriaController : Controller
     {
         private readonly OrderDbContext _context;
@@ -19,7 +19,6 @@ namespace ProjectKMITL.Controllers
         }
 
         // GET: FindCafeteria
-        [Route("/Home/FindCafeteria")]
         public IActionResult Index()
         {
 
@@ -229,7 +228,7 @@ namespace ProjectKMITL.Controllers
         }
 
         [HttpGet]
-        [Route("/Home/FindCafeteria/{cafeteria}/{restaurant}")]
+        [Route("/FindCafeteria/{cafeteria}/{restaurant}")]
         public IActionResult Restaurant(string cafeteria, string restaurant)
         {
             ViewBag.res = restaurant;
@@ -241,6 +240,8 @@ namespace ProjectKMITL.Controllers
             ViewBag.Head = Head;
             HttpContext.Session.SetString("Head", Head);
             ViewBag.caf = cafeteria;
+            
+
             ResModel res1 = new ResModel();
             res1.name = "1";
             res1.img = "kanom.jpg";
@@ -307,7 +308,7 @@ namespace ProjectKMITL.Controllers
 
        
         [HttpGet]
-        [Route("/Home/FindCafeteria/{cafeteria}/{restaurant}/[action]")]
+        [Route("/FindCafeteria/{cafeteria}/{restaurant}/[action]")]
         public IActionResult Cart(string cafeteria, string restaurant)
         {   ViewBag.res = HttpContext.Session.GetString("Restaurant");
             ViewBag.Head = HttpContext.Session.GetString("Head");
@@ -322,7 +323,7 @@ namespace ProjectKMITL.Controllers
         }
 
         [HttpGet]
-        [Route("/Home/FindCafeteria/{cafeteria}/{restaurant}/[action]")]
+        [Route("/FindCafeteria/{cafeteria}/{restaurant}/[action]")]
         public IActionResult Ordered() {
             OrderModel model = new OrderModel();
             model.NameDepositor = HttpContext.Session.GetString("UserName");

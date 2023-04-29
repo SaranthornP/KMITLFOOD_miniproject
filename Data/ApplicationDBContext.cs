@@ -11,5 +11,7 @@ namespace ProjectKMITL.Data
         }
 
         public DbSet<UserModel> Users { get; set; }
+
+
     }
 }

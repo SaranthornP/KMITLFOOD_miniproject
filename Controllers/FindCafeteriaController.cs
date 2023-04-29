@@ -3,12 +3,21 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using ProjectKMITL.Models;
 using System.Web;
+using ProjectKMITL.Data;
 
 namespace ProjectKMITL.Controllers
 {
     [Route("Home/[controller]/[action]")]
     public class FindCafeteriaController : Controller
     {
+        private readonly OrderDbContext _context;
+
+        public FindCafeteriaController(OrderDbContext context)
+        {
+            _context = context;
+
+        }
+
         // GET: FindCafeteria
         [Route("/Home/FindCafeteria")]
         public IActionResult Index()
@@ -305,7 +314,28 @@ namespace ProjectKMITL.Controllers
             return View(ListOrder);
         }
 
-        
+        public IActionResult OrderedPath()
+        {
+            string cafeteria = HttpContext.Session.GetString("Cafeteria");
+            string restaurant = HttpContext.Session.GetString("Restaurant");
+            return RedirectToAction("Ordered", "FindCafeteria", new { cafeteria = cafeteria, restaurant = restaurant });
+        }
+
+        [HttpGet]
+        [Route("/Home/FindCafeteria/{cafeteria}/{restaurant}/[action]")]
+        public IActionResult Ordered() {
+            OrderModel model = new OrderModel();
+            model.NameDepositor = HttpContext.Session.GetString("UserName");
+            model.Cafeteria = HttpContext.Session.GetString("Cafeteria");
+            model.Restaurant = HttpContext.Session.GetString("Restaurant");
+            model.OrderList = HttpContext.Session.GetString("orderList");
+            model.OrderCount = HttpContext.Session.GetString("orderCount");
+            model.NameDepository = "";
+            _context.Orders.Add(model);
+            _context.SaveChanges();
+            return View();
+        }
+
 
     }
 }

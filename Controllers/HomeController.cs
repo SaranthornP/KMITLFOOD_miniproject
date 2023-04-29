@@ -22,6 +22,11 @@ namespace ProjectKMITL.Controllers
             return View();
         }
 
+        public IActionResult Help()
+        {
+            return View();
+        }
+
         public IActionResult FindCafeteria()
         {
             if(HttpContext.Session.GetString("UserName") == null)

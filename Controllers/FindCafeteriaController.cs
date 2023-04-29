@@ -23,28 +23,28 @@ namespace ProjectKMITL.Controllers
                 return RedirectToAction("Login", "Account");
             }
             Cafeteria c1 = new Cafeteria();
-            c1.CafeteriaImg = "Restaurant/b1.png";
+            c1.CafeteriaImg = "Cafeteria/b1.png";
             c1.Name = "โรงอาหารพระเทพ";
             c1.Location = "3 ถ. ฉลองกรุง แขวงลำปลาทิว เขตลาดกระบัง กรุงเทพมหานคร 10520 (ข้างตึกพระเทพ, ใกล้ตึก ECC)";
             c1.Image = "LocationMap/c1.png";
             c1.Destination = "PhraThepCafeteria";
 
             var c2 = new Cafeteria();
-            c2.CafeteriaImg = "Restaurant/b2.png";
+            c2.CafeteriaImg = "Cafeteria/b2.png";
             c2.Name = "โรงอาหาร A";
             c2.Location = "3 ถ. ฉลองกรุง แขวงลาดกระบัง เขตลาดกระบัง กรุงเทพมหานคร 10520 (ข้างตึก A, ใกล้ตึก HM)";
             c2.Image = "LocationMap/c2.png";
             c2.Destination = "CafeteriaA";
 
             var c3 = new Cafeteria();
-            c3.CafeteriaImg = "Restaurant/b3.png";
+            c3.CafeteriaImg = "Cafeteria/b3.png";
             c3.Name = "โรงอาหารถิ่นชงโค";
             c3.Location = "3 ถ. ฉลองกรุง แขวงลาดกระบัง เขตลาดกระบัง กรุงเทพมหานคร 10520 (ใกล้ตึกวิศวกรรมการวัดคุมม)";
             c3.Image = "LocationMap/c3.png";
             c3.Destination = "ThinChongKhoCafeteria";
 
             var c4 = new Cafeteria();
-            c4.CafeteriaImg = "Restaurant/b4.png";
+            c4.CafeteriaImg = "Cafeteria/b4.png";
             c4.Name = "โรงอาหาร C";
             c4.Location = "3 ถนน ฉลองกรุง แขวงลาดกระบัง เขตลาดกระบัง กรุงเทพมหานคร 10520 (ตรงข้ามตึกโหล)";
             c4.Image = "LocationMap/c4.png";

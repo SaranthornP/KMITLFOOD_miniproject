@@ -2,14 +2,93 @@
 
 @{
     ViewData["Title"] = "Work with us";
+    List<OrderListModel> list = new List<OrderListModel>();
 }
 
-<div>
-    @foreach (var Car in Model)
+<div class="container-fluid">
+    <h3>Orders</h3>
+    @foreach (var Order in Model)
     {
-        <div>@Car.Cafeteria</div>
-        <div>@Car.NameDepositor</div>
+        @if (Order.OrderList != null){
+            string[] order = Order.OrderList.Split(',');
+            string[] count = Order.OrderCount.Split(',');
+            for (int i = 0; i < order.Length; i++){
+                OrderListModel item = new OrderListModel();
+                item.name = order[i];
+                item.count = int.Parse(count[i]);
+                list.Add(item);
+            }
+        }
+        <div class="mb-3">
+            <div class="bg-white border border-dark px-3" style="cursor:pointer; border-radius: 25px;">
+                <div class="mx-5 p-3">
+                    <div class="row">
+                        <div class="col-3 d-flex align-items-center justify-content-center" >
+                            <img class="img-fluid border rounded-circle" src="" alt="Profile">
+                        </div>
+                        <div class="col-6 my-5">
+                            <h3>@ViewBag.Username @Order.NameDepositor</h3>
+                            <h4 class="d-inline">@Order.Restaurant</h4>
+                            <div> @Order.Cafeteria </div>
+                        </div>
+                        <div class="col-3 ">
+                            <buton>Yes </buton>
+                            <button>No</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <table class="table table-borderless border">
+                                <thread>
+                                    <tr >
+                                        <th class="text-center" >รายการอาหาร</th>
+                                        <th class="text-start">จำนวน</th>
+                                    </tr>
+                                </thread>
+                            @foreach (var o in list)
+                            {
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center">@o.name</th>
+                                        <th class="text-start">@o.count</th>
+                                    </tr>
+                                </tbody>
+                            }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
+    <div class="row">
+        <div class="">
+            <div style="border-radius: 80px; padding: 100px; background-color: #F8F8F8; color:black;">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <img class="rounded-circle" style='float:left;width:200px;height:200px; margin-right:10px;' src="https://assets.aboutamazon.com/dims4/default/b4a020b/2147483647/strip/true/crop/2448x1380+0+794/resize/660x372!/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2Fd1%2F41%2F5a46bdbc4d12b8e11ce2fb6f22ff%2F20180105-dogsatwork-013.JPG" />
+                        <h4>ชื่อร้าน</h4>
+                        <p>64010827 ศรันย์ธร พรชัยวัฒนากร ผู้ฝาก</p>
+                        <button type="button" class="btn btn-warning">โรงพระเทพ</button>
+
+
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="d-flex justify-content-around">
+                        <button type="button" class="btn btn-danger">Cancle</button>
+                        <button type="button" class="btn btn-success">OK</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
-    
+
+
 

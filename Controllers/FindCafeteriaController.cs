@@ -74,8 +74,8 @@ namespace ProjectKMITL.Controllers
             HttpContext.Session.SetString("Cafeteria", "PhraThepCafeteria");
             ResModel res1 = new ResModel();
             res1.name = "1";
-            res1.img = "kanom.jpg";
-            res1.detail = "ร้านไก่ทอดเทคโน";
+            res1.img = "Restaurant\\PhraThep\\เทคโน.jpg";
+            res1.detail = "ร้านเทคโนอินเตอร์";
 
             var res2 = new ResModel();
             res2.name = "2";
@@ -92,8 +92,9 @@ namespace ProjectKMITL.Controllers
             res4.img = "kanom.jpg";
 
             var res5 = new ResModel();
-            res5.name = "5";
-            res5.img = "kanom.jpg";
+            res5.name = "ร้านณรงค์ข้าวมันไก่";
+            res5.img = "Restaurant\\PhraThep\\ข้าวมันไก่.jpg";
+            res5.detail = "ร้านณรงค์ข้าวมันไก่";
 
             List<ResModel> allRes = new List<ResModel>();
             allRes.Add(res1);

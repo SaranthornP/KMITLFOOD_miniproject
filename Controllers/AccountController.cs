@@ -126,7 +126,7 @@ public class AccountController : Controller
         return View(userModel);
     }
 
-    public IActionResult Edit()
+    public IActionResult EditProfile()
     {
         return View();
     }

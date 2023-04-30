@@ -51,7 +51,7 @@
 
             <div class="row mt-5">
                 <div class="d-flex justify-content-around">
-                    <button type="button" class="btn btn-warning bg-white" onclick="location.href='@Url.Action("Index", "Work")'">Cancle</button>
+                    <button type="button" class="btn btn-warning bg-white" onclick="location.href='@Url.Action("Index", "Work")'">Cancel</button>
                     <form action="@Url.Action("AcceptOrder", "Work")" method="POST">
                         <input type="hidden" name="Id" value="@Order.Id" />
                         <button class="btn btn-warning">Confirm</button>

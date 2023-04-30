@@ -55,7 +55,7 @@ public class AccountController : Controller
         {
             _context.Users.Add(user);
             _context.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         userGet.Password = "";
@@ -80,12 +80,12 @@ public class AccountController : Controller
         if (model.Username == "admin" &&  model.Password == "1")
         {
             HttpContext.Session.SetString("UserName", model.Username);
-            return RedirectToAction("Profile");
+            return RedirectToAction("Index", "Home");
         }
         if (IsValidUser(model.Username, model.Password))
         {
             HttpContext.Session.SetString("UserName", model.Username);
-            return RedirectToAction("Profile");
+            return RedirectToAction("Index", "Home");
             
         }
         if(!IsValidUser(model.Username, model.Password))

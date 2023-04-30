@@ -26,7 +26,7 @@ namespace ProjectKMITL.Controllers
             {
                 HttpContext.Session.Remove("Cafeteria");
             }
-            
+
             if (HttpContext.Session.GetString("UserName") == null)
             {
                 return RedirectToAction("Login", "Account");
@@ -73,44 +73,46 @@ namespace ProjectKMITL.Controllers
         {
             HttpContext.Session.SetString("Cafeteria", "PhraThepCafeteria");
             ResModel res1 = new ResModel();
-            res1.name = "1";
-            res1.img = "Restaurant/PhraThep/เทคโน.jpg";
+            res1.name = "ร้านเทคโนอินเตอร์";
+            res1.img = "Restaurant\\PhraThep\\เทคโน.jpg";
             res1.detail = "ร้านเทคโนอินเตอร์";
 
             var res2 = new ResModel();
-            res2.name = "2";
-            res2.img = "Restaurant/PhraThep/ป้าศรี.jpg";
+            res2.name = "ร้านส้มตำ";
+            res2.img = "Restaurant\\PhraThep\\ป้าศรี.jpg";
             res2.detail = "ร้านป้าศรีส้มตำ";
 
             var res3 = new ResModel();
-            res3.name = "3";
-            res3.img = "Restaurant/PhraThep/ร้านไอหนวด.jpg";
+            res3.name = "ร้านไอหนวด";
+            res3.img = "Restaurant\\PhraThep\\ร้านไอหนวด.jpg";
             res3.detail = "ร้านไอหนวด";
 
             var res4 = new ResModel();
-            res4.name = "5";
-            res4.img = "Restaurant/PhraThep/มามา.jpg";
-            res4.detail = "ร้านมาม่าก๋วยเตี๋ยวเรือ";
+            res4.name = "ร้านมามาก๋วยเตี๋ยวเรือ";
+            res4.img = "Restaurant\\PhraThep\\มามา.jpg";
+            res4.detail = "ร้านมามาก๋วยเตี๋ยวเรือ";
 
             var res5 = new ResModel();
-            res5.name = "6";
-            res5.img = "Restaurant/PhraThep/ร้านณรงค์ข้าวมันไก่.jpg";
+            res5.name = "ร้านณรงค์ข้าวมันไก่";
+            res5.img = "Restaurant\\PhraThep\\ข้าวมันไก่.jpg";
             res5.detail = "ร้านณรงค์ข้าวมันไก่";
 
             var res6 = new ResModel();
-            res6.name = "7";
-            res6.img = "Restaurant/PhraThep/ร้านมิลเลี่ยน.jpg";
+            res6.name = "ร้านมิลเลี่ยน";
+            res6.img = "Restaurant\\PhraThep\\มิลเลี่ยน.jpg";
             res6.detail = "ร้านมิลเลี่ยน";
 
             var res7 = new ResModel();
-            res7.name = "8";
-            res7.img = "Restaurant/PhraThep/ร้านอิริส.jpg";
-            res7.detail = "ร้านอิริส";
+            res7.name = "ร้านอิดริส";
+            res7.img = "Restaurant\\PhraThep\\อิริส.jpg";
+            res7.detail = "ร้านอิดริส";
 
             var res8 = new ResModel();
-            res8.name = "9";
-            res8.img = "Restaurant/PhraThep/ร้านไอเย็น.jpg";
+            res8.name = "ร้านไอเย็น";
+            res8.img = "Restaurant\\PhraThep\\ไอเย็น.jpg";
             res8.detail = "ร้านไอเย็น";
+
+
 
             List<ResModel> allRes = new List<ResModel>();
             allRes.Add(res1);
@@ -129,32 +131,32 @@ namespace ProjectKMITL.Controllers
             HttpContext.Session.SetString("Cafeteria", "CafeteriaA");
             ResModel res1 = new ResModel();
             res1.name = "1";
-            res1.img = "Restaurant/CafeteriaA/ร้านวันดิสมีล.jpg";
+            res1.img = "Restaurant\\CafeteriaA\\ร้านวันดิสมีล.jpg";
             res1.detail = "ร้านวันดิสมีล";
 
             var res2 = new ResModel();
             res2.name = "2";
-            res2.img = "Restaurant/CafeteriaA/ร้านสิบเอ็ด.jpg";
+            res2.img = "Restaurant\\CafeteriaA\\ร้านสิบเอ็ด.jpg";
             res2.detail = "ร้านสิบเอ็ด";
 
             var res3 = new ResModel();
             res3.name = "3";
-            res3.img = "Restaurant/CafeteriaA/ร้านครัวธนโรจน์.jpg";
+            res3.img = "Restaurant\\CafeteriaA\\ร้านครัวธนโรจน์.jpg";
             res3.detail = "ร้านครัวธนโรจน์";
 
             var res4 = new ResModel();
             res4.name = "4";
-            res4.img = "Restaurant/CafeteriaA/ร้านก็อดซิล่า.jpg";
+            res4.img = "Restaurant\\CafeteriaA\\ร้านก็อดซิล่า.jpg";
             res4.detail = "ร้านก็อดซิล่า";
 
             var res5 = new ResModel();
             res5.name = "5";
-            res5.img = "Restaurant/CafeteriaA/ร้านยูกิ.jpg";
+            res5.img = "Restaurant\\CafeteriaA\\ร้านยูกิ.jpg";
             res5.detail = "ร้านยูกิ";
 
             var res6 = new ResModel();
             res6.name = "6";
-            res6.img = "Restaurant/CafeteriaA/ร้านก๋วยเตี๋ยวยำไข่หวานและอาหารตามสั่ง.jpg";
+            res6.img = "Restaurant\\CafeteriaA\\ต้มยำไข่หวาน.jpg";
             res6.detail = "ร้านก๋วยเตี๋ยวยำไข่หวานและอาหารตามสั่ง";
 
             List<ResModel> allRes = new List<ResModel>();
@@ -173,32 +175,32 @@ namespace ProjectKMITL.Controllers
             HttpContext.Session.SetString("Cafeteria", "CafeteriaC");
             ResModel res1 = new ResModel();
             res1.name = "1";
-            res1.img = "Restaurant/CafeteriaC/ร้านเพ็ญกาแฟโบราณ.jpg";
+            res1.img = "Restaurant\\CafeteriaC\\กาแฟโบราณ.jpg";
             res1.detail = "ร้านเพ็ญกาแฟโบราณ";
 
             var res2 = new ResModel();
             res2.name = "2";
-            res2.img = "Restaurant/CafeteriaC/ร้านครัวแม่ประนอม.jpg";
-            res2.detail = "ร้านครัวแม่ประนอม";
+            res2.img = "Restaurant\\CafeteriaC\\ขาหมู.jpg";
+            res2.detail = "ร้านลุงขาหมู";
 
             var res3 = new ResModel();
             res3.name = "3";
-            res3.img = "Restaurant/CafeteriaC/ร้านข้าวแกงป้าวรรณ.jpg";
-            res3.detail = "ร้านข้าวแกงป้าวรรณ";
+            res3.img = "Restaurant\\CafeteriaC\\ทวินันท์.jpg";
+            res3.detail = "ร้านรวินันท์ข้าวมันไก่แกงกะหรี่ญี่ปุ่น";
 
             var res4 = new ResModel();
             res4.name = "4";
-            res4.img = "Restaurant/CafeteriaC/ร้านรวินันท์ข้าวมันไก่แกงกะหรี่ญี่ปุ่น.jpg";
-            res4.detail = "ร้านรวินันท์ข้าวมันไก่แกงกะหรี่ญี่ปุ่น";
+            res4.img = "Restaurant\\CafeteriaC\\ป้าวรรณ.jpg";
+            res4.detail = "ร้านข้าวแกงป้าวรรณ";
 
             var res5 = new ResModel();
             res5.name = "5";
-            res5.img = "Restaurant/CafeteriaC/ร้านลุงขาหมู.jpg";
-            res5.detail = "ร้านลุงขาหมู";
+            res5.img = "Restaurant\\CafeteriaC\\แม่ประนอม.jpg";
+            res5.detail = "ร้านครัวแม่ประนอม";
 
             var res6 = new ResModel();
-            res6.name = "5";
-            res6.img = "Restaurant/CafeteriaC/ร้านอาหารตามสั่ง.jpg";
+            res6.name = "6";
+            res6.img = "Restaurant\\CafeteriaC\\ตามสั่ง.jpg";
             res6.detail = "ร้านอาหารตามสั่ง";
 
             List<ResModel> allRes = new List<ResModel>();
@@ -217,27 +219,27 @@ namespace ProjectKMITL.Controllers
             HttpContext.Session.SetString("Cafeteria", "ThinChongKhoCafeteria");
             ResModel res1 = new ResModel();
             res1.name = "1";
-            res1.img = "Restaurant/ThinChongKho/ร้านกระต่ายทอง.jpg";
+            res1.img = "Restaurant\\ThinChongKho\\กระต่าย.jpg";
             res1.detail = "ร้านกระต่ายทอง";
 
             var res2 = new ResModel();
             res2.name = "2";
-            res2.img = "Restaurant/ThinChongKho/ร้านมุมอร่อย.jpg";
+            res2.img = "Restaurant\\ThinChongKho\\มุมอร่อย.jpg";
             res2.detail = "ร้านมุมอร่อย";
 
             var res3 = new ResModel();
             res3.name = "3";
-            res3.img = "Restaurant/ThinChongKho/ร้านธงฟ้า.jpg";
+            res3.img = "Restaurant\\ThinChongKho\\ธงฟ้า.jpg";
             res3.detail = "ร้านธงฟ้า";
 
             var res4 = new ResModel();
             res4.name = "4";
-            res4.img = "Restaurant/ThinChongKho/ร้านพี่อุ๊.jpg";
+            res4.img = "Restaurant\\ThinChongKho\\อุ๊.jpg";
             res4.detail = "ร้านพี่อุ๊";
 
             var res5 = new ResModel();
             res5.name = "5";
-            res5.img = "Restaurant/ThinChongKho/ร้านสมชายตามสั่ง.jpg";
+            res5.img = "Restaurant\\ThinChongKho\\สมชาย.jpg";
             res5.detail = "ร้านสมชายตามสั่ง";
 
             List<ResModel> allRes = new List<ResModel>();
@@ -255,14 +257,14 @@ namespace ProjectKMITL.Controllers
         {
             string cafeteria = HttpContext.Session.GetString("Cafeteria");
             HttpContext.Session.SetString("Restaurant", value);
-            return RedirectToAction("Restaurant","FindCafeteria" ,new { cafeteria = cafeteria, restaurant = value});
+            return RedirectToAction("Restaurant", "FindCafeteria", new { cafeteria = cafeteria, restaurant = value });
         }
 
         public IActionResult RestaurantPath()
         {
             string cafeteria = HttpContext.Session.GetString("Cafeteria");
             string restaurant = HttpContext.Session.GetString("Restaurant");
-            return RedirectToAction("Restaurant", "FindCafeteria", new { cafeteria = cafeteria, restaurant = restaurant});
+            return RedirectToAction("Restaurant", "FindCafeteria", new { cafeteria = cafeteria, restaurant = restaurant });
         }
 
         [HttpGet]
@@ -285,27 +287,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "กะเพราไก่กรอบ";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\กะเพราไก่กรอบ.jpg";
                 res1.detail = "กะเพราไก่กรอบ";
 
                 var res2 = new ResModel();
                 res2.name = "ข้าวผัดหมู";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ข้าวผัดหมู.jpg";
                 res2.detail = "ข้าวผัดหมู";
 
                 var res3 = new ResModel();
                 res3.name = "ข้าวต้มหมู";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ข้าวต้มหมู.jpg";
                 res3.detail = "ข้าวต้มหมู";
 
                 var res4 = new ResModel();
                 res4.name = "เขียวหวานไก่ราดข้าว";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\เขียวหวานไก่ราดข้าว.jpg";
                 res4.detail = "เขียวหวานไก่ราดข้าว";
 
                 var res5 = new ResModel();
                 res5.name = "ผัดซีอิ๋วหมู";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\ผัดซีอิ๋วหมู.jpg";
                 res5.detail = "ผัดซีอิ๋วหมู";
 
 
@@ -320,27 +322,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "ข้าวไก่แซ่บ";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\ข้าวไก่แซ่บ.jpg";
                 res1.detail = "ข้าวไก่แซ่บ";
 
                 var res2 = new ResModel();
                 res2.name = "หมูทอดทงคัตสึ";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\หมูทอดทงคัตสึ.jpg";
                 res2.detail = "หมูทอดทงคัตสึ";
 
                 var res3 = new ResModel();
                 res3.name = "ข้าวปลาคัตสึ";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ข้าวปลาคัตสึ.jpg";
                 res3.detail = "ข้าวปลาคัตสึ";
 
                 var res4 = new ResModel();
                 res4.name = "ข้าวแกงกะหรี่ญี่ปุ่น";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\ข้าวแกงกะหรี่ญี่ปุ่น.jpg";
                 res4.detail = "ข้าวแกงกะหรี่ญี่ปุ่น";
 
                 var res5 = new ResModel();
                 res5.name = "ข้าวไข่ข้น";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\ข้าวไข่ข้น.jpg";
                 res5.detail = "ข้าวไข่ข้น";
 
 
@@ -355,27 +357,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "ข้าวไข่เจียวทรงเครื่อง";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\ข้าวไข่เจียวทรงเครื่อง.jpg";
                 res1.detail = "ข้าวไข่เจียวทรงเครื่อง";
 
                 var res2 = new ResModel();
                 res2.name = "ข้าวไข่คั่ว";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ข้าวไข่คั่ว.jpg";
                 res2.detail = "ข้าวไข่คั่ว";
 
                 var res3 = new ResModel();
                 res3.name = "ข้าวหมูแดง";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ข้าวหมูแดง.jpg";
                 res3.detail = "ข้าวหมูแดง";
 
                 var res4 = new ResModel();
                 res4.name = "ข้าวหมูกรอบ";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\ข้าวหมูกรอบ.jpg";
                 res4.detail = "ข้าวหมูกรอบ";
 
                 var res5 = new ResModel();
                 res5.name = "บะหมี่หมูแดง";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\บะหมี่หมูแดง.jpg";
                 res5.detail = "บะหมี่หมูแดง";
 
 
@@ -390,27 +392,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "กาแฟคาปูชิโน่";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\กาแฟคาปูชิโน่.jpg";
                 res1.detail = "กาแฟคาปูชิโน่";
 
                 var res2 = new ResModel();
                 res2.name = "ชาไทย";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ชาไทย.jpg";
                 res2.detail = "ชาไทย";
 
                 var res3 = new ResModel();
                 res3.name = "เป๊ปซี่";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\เป๊ปซี่.jpg";
                 res3.detail = "เป๊ปซี่";
 
                 var res4 = new ResModel();
                 res4.name = "น้ำเปล่า";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\น้ำเปล่า.jpg";
                 res4.detail = "น้ำเปล่า";
 
                 var res5 = new ResModel();
                 res5.name = "น้ำแดง";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\น้ำแดง.jpg";
                 res5.detail = "น้ำแดง";
 
 
@@ -425,27 +427,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "ข้าวขาหมู";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\ข้าวขาหมู.jpg";
                 res1.detail = "ข้าวขาหมู";
 
                 var res2 = new ResModel();
                 res2.name = "ต้มเลือดหมู";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ต้มเลือดหมู.jpg";
                 res2.detail = "ต้มเลือดหมู";
 
                 var res3 = new ResModel();
                 res3.name = "ผัดไทยกุ้งสด";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ผัดไทยกุ้งสด.jpg";
                 res3.detail = "ผัดไทยกุ้งสด";
 
                 var res4 = new ResModel();
                 res4.name = "ข้าวผัดต้มยำ";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\ข้าวผัดต้มยำ.jpg";
                 res4.detail = "ข้าวผัดต้มยำ";
 
                 var res5 = new ResModel();
                 res5.name = "ข้าวผัดแหนม";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\ข้าวผัดแหนม.jpg";
                 res5.detail = "ข้าวผัดแหนม";
 
 
@@ -459,27 +461,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "ก๋วยเตี๋ยวต้มยำไข่";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\ก๋วยเตี๋ยวต้มยำไข่.jpg";
                 res1.detail = "ก๋วยเตี๋ยวต้มยำไข่";
 
                 var res2 = new ResModel();
                 res2.name = "ก๋วยเตี๋ยวคั่วไก่";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ก๋วยเตี๋ยวคั่วไก่.jpg";
                 res2.detail = "ก๋วยเตี๋ยวคั่วไก่";
 
                 var res3 = new ResModel();
                 res3.name = "ข้าวผัดอเมริกัน";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ข้าวผัดอเมริกัน.jpg";
                 res3.detail = "ข้าวผัดอเมริกัน";
 
                 var res4 = new ResModel();
                 res4.name = "ข้าวหมูทอดกระเทียม";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\ข้าวหมูทอดกระเทียม.jpg";
                 res4.detail = "ข้าวหมูทอดกระเทียม";
 
                 var res5 = new ResModel();
                 res5.name = "สุกี้หมู";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\สุกี้หมู.jpg";
                 res5.detail = "สุกี้หมู";
 
 
@@ -494,27 +496,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "กาแฟเย็น";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\กาแฟเย็น.jpg";
                 res1.detail = "กาแฟเย็น";
 
                 var res2 = new ResModel();
                 res2.name = "ชานมเย็น";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ชานมเย็น.jpg";
                 res2.detail = "ชานมเย็น";
 
                 var res3 = new ResModel();
                 res3.name = "โกโก้เย็น";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\โกโก้เย็น.jpg";
                 res3.detail = "โกโก้เย็น";
 
                 var res4 = new ResModel();
                 res4.name = "นมเย็น";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\นมเย็น.jpg";
                 res4.detail = "นมเย็น";
 
                 var res5 = new ResModel();
                 res5.name = "น้ำเก๊กฮวย";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\น้ำเก๊กฮวย.jpg";
                 res5.detail = "น้ำเก๊กฮวย";
 
 
@@ -528,27 +530,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "ข้าวตับผัดพริกหยวก";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\ข้าวตับผัดพริกหยวก.jpg";
                 res1.detail = "ข้าวตับผัดพริกหยวก";
 
                 var res2 = new ResModel();
                 res2.name = "ข้าวคะน้าหมูกรอบ";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ข้าวคะน้าหมูกรอบ.jpg";
                 res2.detail = "ข้าวคะน้าหมูกรอบ";
 
                 var res3 = new ResModel();
                 res3.name = "ข้าวผัดพริกแกงหมู";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ข้าวผัดพริกแกงหมู.jpg";
                 res3.detail = "ข้าวผัดพริกแกงหมู";
 
                 var res4 = new ResModel();
                 res4.name = "ข้าวผัดพริกเผาหมู";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\ข้าวผัดพริกเผาหมู.jpg";
                 res4.detail = "ข้าวผัดพริกเผาหมู";
 
                 var res5 = new ResModel();
                 res5.name = "ก๋วยเตี๋ยวราดหน้าหมู";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\ก๋วยเตี๋ยวราดหน้าหมู.jpg";
                 res5.detail = "ก๋วยเตี๋ยวราดหน้าหมู";
 
 
@@ -562,27 +564,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "แกงเผ็ด";
-                res1.img = "kanom.jpg";
-                res1.detail = "ข้าวตับผัดพริกหยวก";
+                res1.img = "pic_food\\แกงเผ็ด.jpg";
+                res1.detail = "แกงเผ็ด";
 
                 var res2 = new ResModel();
                 res2.name = "ผัดเผ็ด";
-                res2.img = "kanom.jpg";
-                res2.detail = "ข้าวคะน้าหมูกรอบ";
+                res2.img = "pic_food\\ผัดเผ็ด.jpg";
+                res2.detail = "ผัดเผ็ด";
 
                 var res3 = new ResModel();
                 res3.name = "ผัดผัก";
-                res3.img = "kanom.jpg";
-                res3.detail = "ข้าวผัดพริกแกงหมู";
+                res3.img = "pic_food\\ผัดผัก.jpg";
+                res3.detail = "ผัดผัก";
 
                 var res4 = new ResModel();
                 res4.name = "ยำทะเล";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\ยำทะเล.jpg";
                 res4.detail = "ยำทะเล";
 
                 var res5 = new ResModel();
                 res5.name = "ต้มจืดวุ้นเส้น";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\ต้มจืดวุ้นเส้น.jpg";
                 res5.detail = "ต้มจืดวุ้นเส้น";
 
 
@@ -596,27 +598,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "ก๋วยเตี๋ยวต้มยำน้ำข้น";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\ก่วยเตี๋ยวต้มยำน้ำข้น.jpg";
                 res1.detail = "ก่วยเตี๋ยวต้มยำน้ำข้น";
 
                 var res2 = new ResModel();
                 res2.name = "ก่วยเตี๋ยวน้ำใส";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ก่วยเตี๋ยวน้ำใส.jpg";
                 res2.detail = "ก่วยเตี๋ยวน้ำใส";
 
                 var res3 = new ResModel();
                 res3.name = "ก่วยเตี๋ยวหมู";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ก่วยเตี๋ยวหมู.jpg";
                 res3.detail = "ก่วยเตี๋ยวหมู";
 
                 var res4 = new ResModel();
                 res4.name = "ก่วยเตี๋ยวหมูตุ๋น";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\ก่วยเตี๋ยวหมูตุ๋น.jpg";
                 res4.detail = "ก่วยเตี๋ยวหมูตุ๋น";
 
                 var res5 = new ResModel();
                 res5.name = "เย็นตาโฟ";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\เย็นตาโฟ.jpg";
                 res5.detail = "เย็นตาโฟ";
 
 
@@ -630,61 +632,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "คะน้าหมูกรอบ";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\คะน้าหมูกรอบ.jpg";
                 res1.detail = "คะน้าหมูกรอบ";
 
                 var res2 = new ResModel();
                 res2.name = "คะน้าหมูชิ้น";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\คะน้าหมูชิ้น.jpg";
                 res2.detail = "คะน้าหมูชิ้น";
 
                 var res3 = new ResModel();
                 res3.name = "ข้าวผัดหมู";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ข้าวผัดหมู.jpg";
                 res3.detail = "ข้าวผัดหมู";
 
                 var res4 = new ResModel();
                 res4.name = "พริกแกงหมูกรอบ";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\พริกแกงหมูกรอบ.jpg";
                 res4.detail = "พริกแกงหมูกรอบ";
 
                 var res5 = new ResModel();
                 res5.name = "กะเพราเนื้อ";
-                res5.img = "kanom.jpg";
-                res5.detail = "กะเพราเนื้อ";
-
-
-                allRes.Add(res1);
-                allRes.Add(res2);
-                allRes.Add(res3);
-                allRes.Add(res4);
-                allRes.Add(res5);
-            }
-            if (restaurant == "ร้านสมชายตามสั่ง")
-            {
-                ResModel res1 = new ResModel();
-                res1.name = "คะน้าหมูกรอบ";
-                res1.img = "kanom.jpg";
-                res1.detail = "คะน้าหมูกรอบ";
-
-                var res2 = new ResModel();
-                res2.name = "คะน้าหมูชิ้น";
-                res2.img = "kanom.jpg";
-                res2.detail = "คะน้าหมูชิ้น";
-
-                var res3 = new ResModel();
-                res3.name = "ข้าวผัดหมู";
-                res3.img = "kanom.jpg";
-                res3.detail = "ข้าวผัดหมู";
-
-                var res4 = new ResModel();
-                res4.name = "พริกแกงหมูกรอบ";
-                res4.img = "kanom.jpg";
-                res4.detail = "พริกแกงหมูกรอบ";
-
-                var res5 = new ResModel();
-                res5.name = "กะเพราเนื้อ";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\กะเพราเนื้อ.jpg";
                 res5.detail = "กะเพราเนื้อ";
 
 
@@ -972,7 +940,7 @@ namespace ProjectKMITL.Controllers
                 allRes.Add(res4);
                 allRes.Add(res5);
             }
-            if (restaurant == "ร้านมาม่าก๋วยเตี๋ยวเรือ")
+            if (restaurant == "ร้านมามาก๋วยเตี๋ยวเรือ")
             {
                 ResModel res1 = new ResModel();
                 res1.name = "ก๋วยเตี๋ยวเรือน้ำตก";
@@ -1066,7 +1034,7 @@ namespace ProjectKMITL.Controllers
                 allRes.Add(res5);
             }
 
-            if (restaurant == "ร้านอิริส")
+            if (restaurant == "ร้านอิดริส")
             {
                 ResModel res1 = new ResModel();
                 res1.name = "ผัดผงกะหรี่";
@@ -1152,7 +1120,7 @@ namespace ProjectKMITL.Controllers
                 int num = int.Parse(count[i]);
                 orderCount[i] = num;
             }
-            
+
             List<OrderListModel> list = new List<OrderListModel>();
             for (int i = 0; i < order.Length; i++)
             {
@@ -1164,14 +1132,15 @@ namespace ProjectKMITL.Controllers
             ListOrder = list;
             string cafeteria = HttpContext.Session.GetString("Cafeteria");
             string restaurant = HttpContext.Session.GetString("Restaurant");
-            return RedirectToAction("Cart", "FindCafeteria" ,new {cafeteria = cafeteria, restaurant = restaurant });
+            return RedirectToAction("Cart", "FindCafeteria", new { cafeteria = cafeteria, restaurant = restaurant });
         }
 
-       
+
         [HttpGet]
         [Route("/FindCafeteria/{cafeteria}/{restaurant}/[action]")]
         public IActionResult Cart(string cafeteria, string restaurant)
-        {   ViewBag.res = HttpContext.Session.GetString("Restaurant");
+        {
+            ViewBag.res = HttpContext.Session.GetString("Restaurant");
             ViewBag.Head = HttpContext.Session.GetString("Head");
             return View(ListOrder);
         }
@@ -1185,7 +1154,8 @@ namespace ProjectKMITL.Controllers
 
         [HttpGet]
         [Route("/FindCafeteria/{cafeteria}/{restaurant}/[action]")]
-        public IActionResult Ordered() {
+        public IActionResult Ordered()
+        {
             OrderModel model = new OrderModel();
             model.NameDepositor = HttpContext.Session.GetString("UserName");
             model.Cafeteria = HttpContext.Session.GetString("Cafeteria");

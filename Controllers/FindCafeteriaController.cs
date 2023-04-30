@@ -496,27 +496,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "กาแฟเย็น";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\กาแฟเย็น.jpg";
                 res1.detail = "กาแฟเย็น";
 
                 var res2 = new ResModel();
                 res2.name = "ชานมเย็น";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ชานมเย็น.jpg";
                 res2.detail = "ชานมเย็น";
 
                 var res3 = new ResModel();
                 res3.name = "โกโก้เย็น";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\โกโก้เย็น.jpg";
                 res3.detail = "โกโก้เย็น";
 
                 var res4 = new ResModel();
                 res4.name = "นมเย็น";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\นมเย็น.jpg";
                 res4.detail = "นมเย็น";
 
                 var res5 = new ResModel();
                 res5.name = "น้ำเก๊กฮวย";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\น้ำเก๊กฮวย.jpg";
                 res5.detail = "น้ำเก๊กฮวย";
 
 
@@ -530,27 +530,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "ข้าวตับผัดพริกหยวก";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\ข้าวตับผัดพริกหยวก.jpg";
                 res1.detail = "ข้าวตับผัดพริกหยวก";
 
                 var res2 = new ResModel();
                 res2.name = "ข้าวคะน้าหมูกรอบ";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ข้าวคะน้าหมูกรอบ.jpg";
                 res2.detail = "ข้าวคะน้าหมูกรอบ";
 
                 var res3 = new ResModel();
                 res3.name = "ข้าวผัดพริกแกงหมู";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ข้าวผัดพริกแกงหมู.jpg";
                 res3.detail = "ข้าวผัดพริกแกงหมู";
 
                 var res4 = new ResModel();
                 res4.name = "ข้าวผัดพริกเผาหมู";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\ข้าวผัดพริกเผาหมู.jpg";
                 res4.detail = "ข้าวผัดพริกเผาหมู";
 
                 var res5 = new ResModel();
                 res5.name = "ก๋วยเตี๋ยวราดหน้าหมู";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\ก๋วยเตี๋ยวราดหน้าหมู.jpg";
                 res5.detail = "ก๋วยเตี๋ยวราดหน้าหมู";
 
 
@@ -564,27 +564,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "แกงเผ็ด";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\แกงเผ็ด.jpg";
                 res1.detail = "แกงเผ็ด";
 
                 var res2 = new ResModel();
                 res2.name = "ผัดเผ็ด";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ผัดเผ็ด.jpg";
                 res2.detail = "ผัดเผ็ด";
 
                 var res3 = new ResModel();
                 res3.name = "ผัดผัก";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ผัดผัก.jpg";
                 res3.detail = "ผัดผัก";
 
                 var res4 = new ResModel();
                 res4.name = "ยำทะเล";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\ยำทะเล.jpg";
                 res4.detail = "ยำทะเล";
 
                 var res5 = new ResModel();
                 res5.name = "ต้มจืดวุ้นเส้น";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\ต้มจืดวุ้นเส้น.jpg";
                 res5.detail = "ต้มจืดวุ้นเส้น";
 
 
@@ -598,27 +598,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "ก๋วยเตี๋ยวต้มยำน้ำข้น";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\ก่วยเตี๋ยวต้มยำน้ำข้น.jpg";
                 res1.detail = "ก่วยเตี๋ยวต้มยำน้ำข้น";
 
                 var res2 = new ResModel();
                 res2.name = "ก่วยเตี๋ยวน้ำใส";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\ก่วยเตี๋ยวน้ำใส.jpg";
                 res2.detail = "ก่วยเตี๋ยวน้ำใส";
 
                 var res3 = new ResModel();
                 res3.name = "ก่วยเตี๋ยวหมู";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ก่วยเตี๋ยวหมู.jpg";
                 res3.detail = "ก่วยเตี๋ยวหมู";
 
                 var res4 = new ResModel();
                 res4.name = "ก่วยเตี๋ยวหมูตุ๋น";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\ก่วยเตี๋ยวหมูตุ๋น.jpg";
                 res4.detail = "ก่วยเตี๋ยวหมูตุ๋น";
 
                 var res5 = new ResModel();
                 res5.name = "เย็นตาโฟ";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\เย็นตาโฟ.jpg";
                 res5.detail = "เย็นตาโฟ";
 
 
@@ -632,27 +632,27 @@ namespace ProjectKMITL.Controllers
             {
                 ResModel res1 = new ResModel();
                 res1.name = "คะน้าหมูกรอบ";
-                res1.img = "kanom.jpg";
+                res1.img = "pic_food\\คะน้าหมูกรอบ.jpg";
                 res1.detail = "คะน้าหมูกรอบ";
 
                 var res2 = new ResModel();
                 res2.name = "คะน้าหมูชิ้น";
-                res2.img = "kanom.jpg";
+                res2.img = "pic_food\\คะน้าหมูชิ้น.jpg";
                 res2.detail = "คะน้าหมูชิ้น";
 
                 var res3 = new ResModel();
                 res3.name = "ข้าวผัดหมู";
-                res3.img = "kanom.jpg";
+                res3.img = "pic_food\\ข้าวผัดหมู.jpg";
                 res3.detail = "ข้าวผัดหมู";
 
                 var res4 = new ResModel();
                 res4.name = "พริกแกงหมูกรอบ";
-                res4.img = "kanom.jpg";
+                res4.img = "pic_food\\พริกแกงหมูกรอบ.jpg";
                 res4.detail = "พริกแกงหมูกรอบ";
 
                 var res5 = new ResModel();
                 res5.name = "กะเพราเนื้อ";
-                res5.img = "kanom.jpg";
+                res5.img = "pic_food\\กะเพราเนื้อ.jpg";
                 res5.detail = "กะเพราเนื้อ";
 
 

@@ -95,5 +95,16 @@ body {
     max-height: 50%;
 }
 
+.orderitem {
+    background-color: white; 
+    cursor:pointer;
+    filter: brightness(100%);
+    transition: 0.2s;
+}
+
+    .orderitem:hover {
+        filter: brightness(90%);
+    }
+
 
 

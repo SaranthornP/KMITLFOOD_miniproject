@@ -33,11 +33,19 @@ namespace ProjectKMITL.Migrations.SecondDB
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NameDepositor")
+                    b.Property<string>("FirstnameDepositor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NameDepository")
+                    b.Property<string>("FirstnameDepository")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastnameDepositor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastnameDepository")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -50,6 +58,14 @@ namespace ProjectKMITL.Migrations.SecondDB
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Restaurant")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsernameDepository")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

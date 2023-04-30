@@ -1,0 +1,60 @@
+﻿@model OrderModel
+@{
+    ViewData["Title"] = "Details";
+    List<OrderListModel> list = new List<OrderListModel>();
+
+    string[] order = Model.OrderList.Split(',');
+    string[] count = Model.OrderCount.Split(',');
+    for (int i = 0; i < order.Length; i++)
+    {
+        OrderListModel item = new OrderListModel();
+        item.name = order[i];
+        item.count = int.Parse(count[i]);
+        list.Add(item);
+    }
+}
+<div class="container-fluid">
+    <div class="previous" style="cursor:pointer" onclick="location.href='@Url.Action("ฝากซื้อ", "Account")'">
+        <h3 class="d-inline-block">&#8249 กลับไปยังรายการทั้งหมด</h3>
+    </div>
+        <div class="border border-dark text-black" style="border-radius: 80px; padding: 50px; background-color: #F8F8F8;">
+        <div class="row">
+            <h2>เกี่ยวกับผู้รับฝาก</h2>
+            <div class="col-md-12 d-flex justify-content-center">
+                <div class="container">
+                    <img class="img-fluid" style='float:left;max-width:200px; max-height:200px; margin-right:10px;' src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" />
+                    <h5>Username ผู้ฝาก: @Model.UsernameDepository</h5>
+                    <h5>ชื่อผู้ฝาก: @Model.FirstnameDepository @Model.LastnameDepository</h5>
+                    <h5>เบอร์โทรผู้ฝาก: @ViewBag.PhoneT</h5>
+                <h4>@Model.Restaurant</h4>
+                <button type="button" class="btn btn-warning">@Model.Cafeteria</button>
+                <br />
+                
+                </div>
+
+            </div>
+        </div>
+        <div class="border">
+            <div class="row">
+                <div class="col-6 text-center">
+                    <h6>รายการอาหาร</h6>
+                </div>
+                <div class="text-center col-6">
+                    <h6>จำนวน</h6>
+                </div>
+
+                @foreach (var Order in list)
+                {
+                    <div class="text-center col-6">
+                        <h6>@Order.name</h6>
+                    </div>
+                    <div class="text-center col-6">
+                        <h6>@Order.count</h6>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+    </div>
+</div>

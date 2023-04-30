@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProjectKMITL.Models.OrderModel>;
+
+
+@foreach (var Order in Model)
+{
+    <div class="container-fluid">
+        @{
+            List<OrderListModel> list = new List<OrderListModel>();
+            string[] order = Order.OrderList.Split(',');
+            string[] count = Order.OrderCount.Split(',');
+            for (int i = 0; i < order.Length; i++)
+            {
+                OrderListModel item = new OrderListModel();
+                item.name = order[i];
+                item.count = int.Parse(count[i]);
+                list.Add(item);
+            }
+        }
+        <div class="border" style="border-radius: 80px; padding: 100px; background-color: #F8F8F8; color:black;">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center ms-5">
+                    <div class="container-fluid">
+                        <img class="img-fluid" style='float:left;max-width:200px; max-height:200px; margin-right:10px;' src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" />
+                        <h4>@Order.Restaurant</h4>
+                        <button type="button" class="btn btn-warning">@Order.Cafeteria</button>
+                        <div class="d-flex justify-content-center">
+                            <table class="table table-borderless">
+                                <thread>
+                                    <tr>
+                                        <th>รายการอาหาร</th>
+                                        <th>จำนวน</th>
+                                    </tr>
+                                </thread>
+                                @foreach (var items in list)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <th>@items.name</th>
+                                            <th>@items.count</th>
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="d-flex justify-content-around">
+                    <button type="button" class="btn btn-warning bg-white" onclick="location.href='@Url.Action("Index", "Work")'">Cancle</button>
+                    <form action="@Url.Action("AcceptOrder", "Work")" method="POST">
+                        <input type="hidden" name="Id" value="@Order.Id" />
+                        <button class="btn btn-warning">Confirm</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+}

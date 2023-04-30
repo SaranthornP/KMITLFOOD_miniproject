@@ -22,6 +22,11 @@ namespace ProjectKMITL.Controllers
             return View();
         }
 
+        public IActionResult Help()
+        {
+            return View();
+        }
+
         public IActionResult FindCafeteria()
         {
             if(HttpContext.Session.GetString("UserName") == null)
@@ -100,7 +105,7 @@ namespace ProjectKMITL.Controllers
         {
             ResModel res1 = new ResModel();
             res1.name = "1";
-            res1.img = "kanom.jpg";
+            res1.img = "Restaurant\\PhraThep\\ร้านไอเย็น.jpg";
             res1.detail = "ร้านไก่ทอดเทคโน";
 
             var res2 = new ResModel();

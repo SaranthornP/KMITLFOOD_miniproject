@@ -1133,8 +1133,10 @@ namespace ProjectKMITL.Controllers
             return View(ListOrder);
         }
 
-        public IActionResult OrderedPath()
+        [HttpPost]
+        public IActionResult OrderedPath(string count)
         {
+            HttpContext.Session.SetString("orderCount", count);
             string cafeteria = HttpContext.Session.GetString("Cafeteria");
             string restaurant = HttpContext.Session.GetString("Restaurant");
             return RedirectToAction("Ordered", "FindCafeteria", new { cafeteria = cafeteria, restaurant = restaurant });
@@ -1168,7 +1170,7 @@ namespace ProjectKMITL.Controllers
             HttpContext.Session.Remove("Restaurant");
             HttpContext.Session.Remove("orderList");
             HttpContext.Session.Remove("orderCount");
-            return View();
+            return RedirectToAction("ฝากซื้อ", "Account");
         }
 
 

@@ -200,6 +200,8 @@ public class AccountController : Controller
         IEnumerable<OrderModel> allOrder = _db.Orders;
         string Username = HttpContext.Session.GetString("UserName");
         var list = allOrder.Where(x => x.Username == Username);
+        var count = allOrder.Count(x => x.Username == Username);
+        ViewBag.listnum = count;
         return View(list);
     }
 
@@ -208,6 +210,8 @@ public class AccountController : Controller
         IEnumerable<OrderModel> allOrder = _db.Orders;
         string Username = HttpContext.Session.GetString("UserName");
         var list = allOrder.Where(x => x.UsernameDepository == Username);
+        var count = allOrder.Count(x => x.UsernameDepository == Username);
+        ViewBag.listnum2 = count;
         return View(list);
     }
 
@@ -224,8 +228,15 @@ public class AccountController : Controller
         {
             return NotFound();
         }
-        var phone = _context.Users.SingleOrDefault(x => x.Username == obj.UsernameDepository);
-        ViewBag.PhoneT = phone.Phone;
+        if (obj.UsernameDepository == "")
+        {
+            ViewBag.PhoneT = "";
+        }
+        else
+        {
+            var phone = _context.Users.SingleOrDefault(x => x.Username == obj.UsernameDepository);
+            ViewBag.PhoneT = phone.Phone;
+        }
         return View(obj);
     }
 
@@ -242,7 +253,7 @@ public class AccountController : Controller
         {
             return NotFound();
         }
-        var phone = _context.Users.SingleOrDefault(x => x.Username == obj.UsernameDepository);
+        var phone = _context.Users.SingleOrDefault(x => x.Username == obj.Username);
         ViewBag.Phone = phone.Phone;
         return View(obj);
     }

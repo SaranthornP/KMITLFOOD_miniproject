@@ -9,81 +9,89 @@
     <div class="previous" style="cursor:pointer" onclick="location.href='@Url.Action("Profile", "Account")'">
         <h3 class="d-inline-block">&#8249 Profile</h3>
     </div>
-
-    @foreach (var Order in Model)
+    @if (ViewBag.listnum == 0)
     {
-        @if (Order.OrderList != null)
+        <div class="container text-center">
+            <h1 class="">ไม่มีรายการที่ฝากซื้อ</h1>
+        </div>
+    }
+    @foreach (var Order in Model)
         {
-            list = new List<OrderListModel>();
-            string[] order = Order.OrderList.Split(',');
-            string[] count = Order.OrderCount.Split(',');
-            for (int i = 0; i < order.Length; i++)
+            @if (Order.OrderList != null)
             {
-                OrderListModel item = new OrderListModel();
-                item.name = order[i];
-                item.count = int.Parse(count[i]);
-                list.Add(item);
+                list = new List<OrderListModel>();
+                string[] order = Order.OrderList.Split(',');
+                string[] count = Order.OrderCount.Split(',');
+                for (int i = 0; i < order.Length; i++)
+                {
+                    OrderListModel item = new OrderListModel();
+                    item.name = order[i];
+                    item.count = int.Parse(count[i]);
+                    list.Add(item);
+                }
+              
             }
-        }
         <form id="@Order.Id" asp-controller="Account" asp-action="Detail" method="post">
-            <input type="hidden" name="Id" value="@Order.Id" />
-            <div class="mb-3" onclick="sumbitDiv()">
-                <div class="orderitem border border-dark px-3" style="border-radius: 25px;">
-                    <div class="mx-5 p-3">
-                        <div class="row border-bottom border-dark">
-                            <div class="col-3 d-flex align-items-center justify-content-center">
-                                <img class="rounded-circle mt-5" width="150" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" alt="Profile">
-                            </div>
-                            <div class="col-6 my-5">
-                                <h3>@Order.UsernameDepository @Order.FirstnameDepository @Order.LastnameDepository</h3>
-                                <h4 class="">@Order.Restaurant</h4>
-                                <div class="btn btn-warning" style="cursor:default "> @Order.Cafeteria </div>
-                            </div>
-                            <div class="col-3 d-flex justify-content-around align-items-center">
-                                @if (Order.UsernameDepository == "")
-                                {
-                                    <button class="btn btn-success">อยู่รอระหว่างดำเนินรายการ</button>
-                                }
-                                else
-                                {
-                                    <button class="btn btn-success">กำลังนำส่ง</button>
-                                }
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 d-flex justify-content-center">
-                                <table class="table table-borderless">
-                                    <thread>
-                                        <tr>
-                                            <th class="text-center">รายการอาหาร</th>
-                                            <th class="text-start">จำนวน</th>
-                                        </tr>
-                                    </thread>
-                                    @foreach (var o in list)
+                <input type="hidden" name="Id" value="@Order.Id" />
+                <div class="mb-3" onclick="sumbitDiv(@Order.Id)">
+                    <div class="orderitem border border-dark px-3" style="border-radius: 25px;">
+                        <div class="mx-5 p-3">
+                            <div class="row border-bottom border-dark">
+                                <div class="col-3 d-flex align-items-center justify-content-center">
+                                    <img class="rounded-circle mt-5" width="150" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" alt="Profile">
+                                </div>
+                                <div class="col-6 my-5">
+                                    <h3>@Order.UsernameDepository @Order.FirstnameDepository @Order.LastnameDepository</h3>
+                                    <h4 class="">@Order.Restaurant</h4>
+                                    <div class="btn btn-warning" style="cursor:default "> @Order.Cafeteria </div>
+                                </div>
+                                <div class="col-3 d-flex justify-content-around align-items-center">
+                                    @if (Order.UsernameDepository == "")
                                     {
-                                        <tbody>
-                                            <tr>
-                                                <th class="text-center">@o.name</th>
-                                                <th class="text-start ps-4">@o.count</th>
-                                            </tr>
-                                        </tbody>
+                                        <button class="btn btn-success">อยู่รอระหว่างดำเนินรายการ</button>
                                     }
-                                </table>
+                                    else
+                                    {
+                                        <button class="btn btn-success">กำลังนำส่ง</button>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 d-flex justify-content-center">
+                                    <table class="table table-borderless">
+                                        <thread>
+                                            <tr>
+                                                <th class="text-center">รายการอาหาร</th>
+                                                <th class="text-start">จำนวน</th>
+                                            </tr>
+                                        </thread>
+                                        @foreach (var o in list)
+                                        {
+                                            <tbody>
+                                                <tr>
+                                                    <th class="text-center">@o.name</th>
+                                                    <th class="text-start ps-4">@o.count</th>
+                                                </tr>
+                                            </tbody>
+                                        }
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
-        <script>
-            function sumbitDiv() {
-                document.getElementById("@Order.Id").submit();
-            }
-        </script>
-    }
+            </form>
+
+        }
 
 </div>
 
+<script>
+    function sumbitDiv(id) {
 
+        document.getElementById(id).submit();
+
+         }
+</script>
 
 

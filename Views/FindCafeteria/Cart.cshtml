@@ -24,7 +24,9 @@
                             <tbody>
                                 <tr>
                                     <th>@Order.name</th>
-                                    <th>@Order.count</th>
+                                    <th>
+                                        <input type="number" name="value" value="@Order.count">
+                                    </th>
                                 </tr>
                             </tbody>
                         }
@@ -37,11 +39,27 @@
 
         <div class="row">
             <div class="d-flex justify-content-around">
-                <button type="button" class="btn btn-warning bg-white" onclick="location.href='@Url.Action("RestaurantPath")'">Cancle</button>
-                <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("OrderedPath")'">Confirm</button>
+                <button type="button" class="btn btn-warning bg-white" onclick="location.href='@Url.Action("RestaurantPath")'">Cancel</button>
+                <button type="button" class="btn btn-warning" onclick="PassValue()">Confirm</button>
+                <form id="formoutput" action="@Url.Action("OrderedPath")" method="POST">
+                    <input id="output" type="hidden" name="count" value="">
+                </form>
+                
             </div>
         </div>
-
     </div>
 
 </div>
+<script>
+    function PassValue() {
+        const val = document.getElementsByTagName('input');
+        var a = "";
+        for (let i = 0; i < val.length-1; i++){
+            if (a != "") a += ',' + val[i].value;
+            else a += val[i].value;
+        }
+        document.getElementById('output').value = a;
+        document.getElementById("formoutput").submit();
+    }
+    
+</script>

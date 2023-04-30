@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<ProjectKMITL.Models.OrderModel>;
-
+@{
+    ViewData["Title"] = "Confirm";
+}
 
 @foreach (var Order in Model)
 {
@@ -16,11 +18,11 @@
                 list.Add(item);
             }
         }
-        <div class="border" style="border-radius: 80px; padding: 100px; background-color: #F8F8F8; color:black;">
+        <div class="border border-2 border-dark" style="border-radius: 75px; padding: 100px; background-color: #F8F8F8; color:black;">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center ms-5">
                     <div class="container-fluid">
-                        <img class="img-fluid" style='float:left;max-width:200px; max-height:200px; margin-right:10px;' src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" />
+                        <img class="img-fluid rounded-circle" style='float:left;max-width:200px; max-height:200px; margin-right:10px;' src="~/Images/Avatar.png" />
                         <h4>@Order.Restaurant</h4>
                         <button type="button" class="btn btn-warning">@Order.Cafeteria</button>
                         <div class="d-flex justify-content-center">

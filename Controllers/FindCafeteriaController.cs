@@ -11,11 +11,12 @@ namespace ProjectKMITL.Controllers
     public class FindCafeteriaController : Controller
     {
         private readonly OrderDbContext _context;
+        private readonly ApplicationDBContext _users;
 
-        public FindCafeteriaController(OrderDbContext context)
+        public FindCafeteriaController(OrderDbContext context, ApplicationDBContext users)
         {
             _context = context;
-
+            _users = users;
         }
 
         // GET: FindCafeteria
@@ -1157,14 +1158,25 @@ namespace ProjectKMITL.Controllers
         public IActionResult Ordered()
         {
             OrderModel model = new OrderModel();
-            model.NameDepositor = HttpContext.Session.GetString("UserName");
-            model.Cafeteria = HttpContext.Session.GetString("Cafeteria");
+            model.Username = HttpContext.Session.GetString("UserName");
+            IEnumerable<UserModel> User = _users.Users;
+            var list = User.Where(x => x.Username == model.Username);
+            foreach(var item in list)
+            {
+                model.FirstnameDepositor = item.Firstname;
+                model.LastnameDepositor= item.Lastname;
+            }
+            model.Cafeteria = HttpContext.Session.GetString("Head");
             model.Restaurant = HttpContext.Session.GetString("Restaurant");
             model.OrderList = HttpContext.Session.GetString("orderList");
             model.OrderCount = HttpContext.Session.GetString("orderCount");
-            model.NameDepository = "";
+            model.UsernameDepository = "";
+            model.FirstnameDepository = "";
+            model.LastnameDepository = "";
+            
             _context.Orders.Add(model);
             _context.SaveChanges();
+            HttpContext.Session.Remove("Head");
             HttpContext.Session.Remove("Cafeteria");
             HttpContext.Session.Remove("Restaurant");
             HttpContext.Session.Remove("orderList");

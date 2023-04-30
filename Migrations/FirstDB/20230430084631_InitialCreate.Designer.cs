@@ -8,10 +8,10 @@ using ProjectKMITL.Data;
 
 #nullable disable
 
-namespace ProjectKMITL.Migrations.SecondDB
+namespace ProjectKMITL.Migrations.FirstDB
 {
-    [DbContext(typeof(OrderDbContext))]
-    [Migration("20230429130836_InitialCreate")]
+    [DbContext(typeof(ApplicationDBContext))]
+    [Migration("20230430084631_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,41 +24,39 @@ namespace ProjectKMITL.Migrations.SecondDB
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ProjectKMITL.Models.OrderModel", b =>
+            modelBuilder.Entity("ProjectKMITL.Models.UserModel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
-                    b.Property<string>("Cafeteria")
+                    b.Property<string>("Firstname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NameDepositor")
+                    b.Property<string>("Lastname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NameDepository")
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OrderCount")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("UserId");
 
-                    b.Property<string>("OrderList")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Restaurant")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Orders");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

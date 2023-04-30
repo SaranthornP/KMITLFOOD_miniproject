@@ -16,12 +16,16 @@ namespace ProjectKMITL.Migrations.SecondDB
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NameDepositor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstnameDepositor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastnameDepositor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cafeteria = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Restaurant = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OrderList = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OrderCount = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NameDepository = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    UsernameDepository = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstnameDepository = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastnameDepository = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -4,6 +4,7 @@ using ProjectKMITL.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.CodeAnalysis.Operations;
+using System.Collections.Generic;
 
 
 public class AccountController : Controller
@@ -130,8 +131,55 @@ public class AccountController : Controller
 
     public IActionResult EditProfile()
     {
-        return View();
+        string username = HttpContext.Session.GetString("UserName");
+        var user = _context.Users.FirstOrDefault(u => u.Username == username);
+        var obj = _context.Users.Find(user.UserId);
+        return View(obj);
     }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult EditProfile(UserModel obj)
+    {
+        var usrObj = _context.Users.Find(obj.UserId);
+        if (usrObj != null) { 
+        usrObj.Firstname = obj.Firstname;
+        usrObj.Lastname = obj.Lastname;
+        usrObj.Phone = obj.Phone;
+        }
+        else
+        {
+            return Content("Null");
+        }
+
+        if (ModelState.IsValid)
+        {
+            _context.Users.Update(usrObj);
+            _context.SaveChanges();
+            IEnumerable<OrderModel> allOrder = _db.Orders;
+            var list = allOrder.Where(x => x.Username == usrObj.Username);
+            foreach(var item in list)
+            {
+                item.FirstnameDepositor = obj.Firstname;
+                item.LastnameDepositor=obj.Lastname;
+                _db.Orders.Update(item);
+            }
+            _db.SaveChanges();
+            list = allOrder.Where(x => x.UsernameDepository == usrObj.Username);
+            foreach(var item in list)
+            {
+                item.FirstnameDepository = obj.Firstname;
+                item.LastnameDepository = obj.Lastname;
+                _db.Orders.Update(item);
+            }
+            _db.SaveChanges();
+            return RedirectToAction("Profile");
+
+        }
+
+        return RedirectToAction("EditProfile");
+    }
+
     private bool IsValidUser(string username, string password)
     {
         var isValid = false;
@@ -147,12 +195,74 @@ public class AccountController : Controller
         return isValid;
     }
 
-    public IActionResult Delete()
+    public IActionResult ฝากซื้อ()
     {
         IEnumerable<OrderModel> allOrder = _db.Orders;
         string Username = HttpContext.Session.GetString("UserName");
-        var list = allOrder.Where(x => x.NameDepository == Username);
+        var list = allOrder.Where(x => x.Username == Username);
         return View(list);
+    }
+
+    public IActionResult รับฝาก()
+    {
+        IEnumerable<OrderModel> allOrder = _db.Orders;
+        string Username = HttpContext.Session.GetString("UserName");
+        var list = allOrder.Where(x => x.UsernameDepository == Username);
+        return View(list);
+    }
+
+    [Route("[controller]/ฝากซื้อ/Detail")]
+    public IActionResult Detail(int? id)
+    {
+        if (id == null || id == 0)
+        {
+            return NotFound();
+        } 
+        var obj = _db.Orders.Find(id);
+
+        if (obj == null)
+        {
+            return NotFound();
+        }
+        var phone = _context.Users.SingleOrDefault(x => x.Username == obj.UsernameDepository);
+        ViewBag.PhoneT = phone.Phone;
+        return View(obj);
+    }
+
+    [Route("[controller]/ฝากซื้อ/DetailWork")]
+    public IActionResult DetailWork(int? id)
+    {
+        if (id == null || id == 0)
+        {
+            return NotFound();
+        }
+        var obj = _db.Orders.Find(id);
+
+        if (obj == null)
+        {
+            return NotFound();
+        }
+        var phone = _context.Users.SingleOrDefault(x => x.Username == obj.UsernameDepository);
+        ViewBag.Phone = phone.Phone;
+        return View(obj);
+    }
+
+    [HttpPost]
+    public IActionResult Delete(int? id)
+    {
+        if (id == null || id == 0)
+        {
+            return NotFound();
+        }
+        var obj = _db.Orders.Find(id);
+
+        if (obj == null)
+        {
+            return NotFound();
+        }
+        _db.Orders.Remove(obj);
+        _db.SaveChanges();
+        return RedirectToAction("รับฝาก", "Account");
     }
 
 }

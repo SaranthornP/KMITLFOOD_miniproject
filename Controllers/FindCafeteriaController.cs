@@ -1195,6 +1195,10 @@ namespace ProjectKMITL.Controllers
             model.NameDepository = "";
             _context.Orders.Add(model);
             _context.SaveChanges();
+            HttpContext.Session.Remove("Cafeteria");
+            HttpContext.Session.Remove("Restaurant");
+            HttpContext.Session.Remove("orderList");
+            HttpContext.Session.Remove("orderCount");
             return View();
         }
 

@@ -8,11 +8,12 @@ namespace ProjectKMITL.Controllers
     {
 
         private readonly OrderDbContext _context;
+        private readonly ApplicationDBContext _db;
 
-        public WorkController(OrderDbContext context)
+        public WorkController(OrderDbContext context, ApplicationDBContext db)
         {
             _context = context;
-
+            _db = db;
         }
         [HttpGet]
             public IActionResult Index(){

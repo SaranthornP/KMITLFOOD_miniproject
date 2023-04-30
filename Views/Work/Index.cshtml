@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<ProjectKMITL.Models.OrderModel>;
-
 @{
     ViewData["Title"] = "Work with us";
     List<OrderListModel> list = new List<OrderListModel>();
@@ -9,6 +8,7 @@
     <h3>Orders</h3>
     @foreach (var Order in Model)
     {
+
         @if (Order.OrderList != null){
             list = new List<OrderListModel>();
             string[] order = Order.OrderList.Split(',');

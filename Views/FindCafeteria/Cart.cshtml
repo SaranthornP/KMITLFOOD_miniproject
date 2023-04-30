@@ -5,7 +5,7 @@
 
 
 <div class="container-fluid">
-    <div class="border" style="border-radius: 80px; padding: 100px; background-color: #F8F8F8; color:black;">
+    <div class="border border-dark border-2" style="border-radius: 75px; padding: 100px; background-color: #F8F8F8; color:black;">
         <div class="row">
             <div class="col-md-12">
                 <img class="img-fluid" style='float:left;max-width:200px; max-height:200px; margin-right:10px;' src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" />
@@ -37,10 +37,11 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="d-flex justify-content-around">
-                <button type="button" class="btn btn-warning bg-white" onclick="location.href='@Url.Action("RestaurantPath")'">Cancel</button>
-                <button type="button" class="btn btn-warning" onclick="PassValue()">Confirm</button>
+        <div class="row d-flex justify-content-around">
+            <div class="border" style="width: fit-content">
+
+                <button type="button" class="btn btn-warning bg-white me-5" onclick="location.href='@Url.Action("RestaurantPath")'">Cancel</button>
+                <button type="button" class="btn btn-warning" onclick="PassValue()" style="margin-left: 150px">Confirm</button>
                 <form id="formoutput" action="@Url.Action("OrderedPath")" method="POST">
                     <input id="output" type="hidden" name="count" value="">
                 </form>
